@@ -1,0 +1,10 @@
+# Shotgun Pipeline Toolkit configuration file
+# This file was automatically created by setup_project
+# This file reflects the paths in the primary pipeline
+# configuration defined for this project.
+
+Windows: ''
+Darwin: '/jaunt/prod/config/PipelineTest_HonorFlight'
+Linux: ''
+
+# End of file.
