@@ -1,0 +1,10 @@
+# Shotgun Pipeline Toolkit configuration file
+# This file was automatically created by setup_project
+# This file reflects the paths in the primary pipeline
+# configuration defined for this project.
+
+Windows: '\\files\jaunt\prod\library\shotgun\toolkit\sgtst2'
+Darwin: '/jaunt/prod/library/shotgun/toolkit/sgtst2'
+Linux: '/jaunt/prod/library/shotgun/toolkit/sgtst2'
+
+# End of file.

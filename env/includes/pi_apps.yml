@@ -1,0 +1,164 @@
+# Copyright (c) 2015 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+#
+#
+# This file contains commonly used apps and is included from
+# other environment files. You'll see references to for example
+# @about, @workfiles etc. Whenever a definition like that appears,
+# one of the definitions below are pulled in to replace that
+# include statement.
+#
+
+#################################################################################################
+# include paths to all our applications
+includes:
+# first include the configuration's global settings for application paths
+- ./paths.yml
+
+launch_premiere:
+  defer_keyword: ''
+  engine: ""
+  extra: '@premiere_extras'
+  hook_app_launch: default
+  hook_before_app_launch: before_premiere_launch
+  icon: '{config_path}/icons/premiere_logo.png'
+  linux_args: ''
+  linux_path: ''
+  location:
+    version: v0.6.7
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@premiere_mac'
+  menu_name: Launch Premiere
+  versions: []
+  windows_args: ''
+  windows_path: '@premiere_win'
+  extensions:
+    # This should be a path local to the config, or a known path
+    # that we use to ship extensions to clients
+    # pi-premiere-importcut: "/Library/Application Support/Adobe/CEP/pi-premiere-importcut"
+    pi-premiere-importcut: "/jaunt/prod/library/shotgun/premiere/pi-premiere-importcut"
+    # pi-premiere-importcut: '{config_path}/premiere'
+
+tk-multi-importcut:
+    # cut_link_field: sg_link
+    cut_link_field: sg_entity
+    default_head_in: 1001
+    default_head_in_duration: 8
+    default_tail_out_duration: 8
+    display_name: Cut Import
+    ensure_sg_setup_hook: '{self}/post_install.py'
+    location: {name: tk-multi-importcut, type: app_store, version: v1.5.1.pi}
+    # location: {type: dev, path: "/Users/mattor/Documents/dev/repos/tk-multi-importcut"}
+    # location: {type: dev, path: "/jaunt/prod/library/shotgun/toolkit/dev/tk-multi-importcut"}
+    # location: {type: dev, path: "/Library/Application Support/Adobe/CEP/extensions/pi-premiere-importcut/tk-multi-importcut/v1.4.0.pi"}
+    # location: {type: dev, path: "/Library/Application Support/Adobe/CEP/extensions/pi-premiere-importcut/tk-multi-importcut"}
+    omit_statuses: [inac, hld, omt]
+    reinstate_status: act
+    report_to_group: Editorial
+    sg_cut_item_entity: CustomEntity09
+    use_smart_fields: false
+    timecode_frame_mapping:
+        timecode: "automatic"
+        frame: 1001
+
+tk-multi-importmedia:
+  columns: [NAME, FORMATS, EXISTS, STEREO]
+  ignored_extensions: [tmp, log, db, txt, yml]
+  local_transcoding:
+  - formats: [mp4, webm, filmstrip, thumbnail, movie_image]
+    transcoder: ffmpeg
+  location: {name: tk-multi-importmedia, type: app_store, version: v0.1.1}
+  mandatory_fields: []
+  movie_review_formats: [movie, editorial, image]
+  path_template: version_file_name
+  playlist_name_template: playlist_name_template
+  restrict_field_entity_types:
+  - entity_types: [Shot, Sequence, Asset]
+    field_name: entity
+  version_field_columns: [entity, sg_version_type, description]
+  version_name_templates: [shot_version_name, asset_version_name]
+
+###############################################################################
+#
+# Framework includes.
+#
+# Frameworks are libraries that are shared between apps and that contain
+# common functionality for building UIs and communicating with Shotgun.
+# Frameworks are automatically installed when apps are installed and udpated.
+#
+frameworks:
+  tk-framework-pi_v0.x.x:
+    location: {name: tk-framework-pi, type: app_store, version: v0.0.1}
+  tk-framework-editorial_v1.x.x:
+    # location: {name: tk-framework-editorial, type: app_store, version: v1.2.1}
+    # location: {type: dev, path: "/Users/mattor/Documents/dev/toolkit/com_shotgunstudio_raphe/config/jaunt_vr_4/dev/frameworks/tk-framework-editorial"}
+    location: {type: dev, path: "/jaunt/prod/library/shotgun/premiere/pi-premiere-importcut/frameworks/tk-framework-editorial"}
+  tk-framework-wb_v3.x.x:
+    location: {name: tk-framework-wb, type: app_store, version: v3.4.0}
+  tk-framework-studio_v1.x.x:
+    location: {name: tk-framework-studio, type: app_store, version: v1.2.5}
+  tk-framework-transcoding_v1.x.x:
+    location: {name: tk-framework-transcoding, type: app_store, version: v1.3.0}
+  tk-framework-delivery_v1.x.x:
+    delivery_formats:
+    - display_name: Images
+      exclusive: true
+      extensions: [exr, dpx, tif, tiff, jpg, jpeg, png, tga, pdf]
+      name: image
+      tank_type: '{EXTENSION}'
+      type: image
+    - display_name: Mov
+      exclusive: true
+      extensions: [mov, mp4, mpeg, avi]
+      name: movie
+      tank_type: '{EXTENSION}'
+      type: movie
+    - display_name: Ed
+      exclusive: false
+      extensions: [edit]
+      name: editorial
+      tank_type: DNXHD
+      type: movie
+    - display_name: ???
+      exclusive: false
+      extensions: []
+      name: other
+      tank_type: '{EXTENSION}'
+      type: other
+    location: {name: tk-framework-delivery, type: app_store, version: v1.2.2}
+  tk-framework-delivery_v2.x.x:
+    delivery_formats:
+    - display_name: Images
+      exclusive: true
+      extensions: [exr, dpx, tif, tiff, jpg, jpeg, png, tga, pdf]
+      name: image
+      tank_type: '{EXTENSION}'
+      type: image
+    - display_name: Mov
+      exclusive: true
+      extensions: [mov, mp4, mpeg, avi]
+      name: movie
+      tank_type: '{EXTENSION}'
+      type: movie
+    - display_name: Ed
+      exclusive: false
+      extensions: [edit]
+      name: editorial
+      tank_type: DNXHD
+      type: movie
+    - display_name: ???
+      exclusive: false
+      extensions: []
+      name: other
+      tank_type: '{EXTENSION}'
+      type: other
+    location: {name: tk-framework-delivery, type: app_store, version: v2.1.2}
