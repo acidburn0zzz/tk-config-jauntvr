@@ -49,6 +49,7 @@ def float_to_timecode( seconds ) :
     (secs_f, secs_i) = math.modf(secs)
     return "%02.0f:%02.0f:%02.0f.%s" % (hrs_i, mins_i, secs_i, str(secs_f)[2:4])
 
+
 def attach_report_to_sg_entity(sg, entity, report_pdf, report_type=None, details_thread=None):
     """
     Potentially generic proc to attach reports to a given entity
@@ -110,26 +111,27 @@ class ShotPlateTurnover(Hook):
         """
         # Set some local variables used throughout the report generation
         # process. Similar to what would typically be set in __init__()
+        self._downloaded_thumb_paths = {}
+        self._segments_by_shot = {}
+        self._versions_by_shot = {}
+        self._notes_by_shot = {}
         self._app = app
         self._thread = thread
-        self.progress_ct = progress_ct
         self._destination_dir = destination_dir
         self._report_config = report_hook_config
         self._temp_dir = make_temp_dir()
         self._date_time_format_templ = self._app.sgtk.templates.get(
             self._report_config.get("date_time_format")
         )
-
-        self._downloaded_thumb_paths = {}
-        self._segments_by_shot = {}
-        self._versions_by_shot = {}
-        self._notes_by_shot = {}
+        self.progress_ct = progress_ct
     
+        # Check to make sure this report can handle the selected entity type
         valid_types = self._report_config.get("valid_entity_types")
         if entity_type not in valid_types:
             raise Exception, "Only %s entity type(s) are supported." % valid_types
 
         # grab shots
+        update_details(self._thread, "Finding shots")
         shot_fields = [
             "code", 
             "sg_sequence.Sequence.sg_release_title", 
@@ -137,7 +139,6 @@ class ShotPlateTurnover(Hook):
             "sg_awarded_vendor.HumanUser.sg_vendor_code", 
             "sg_turnover_notes___linked_field", 
         ]
-        update_details(self._thread, "Finding shots")
         shots = find_entities_by_ids(self._app.shotgun, entity_type, entity_ids, shot_fields, [])
         
         # Load thumbnails to display in report, if ever requested.
@@ -175,6 +176,7 @@ class ShotPlateTurnover(Hook):
         if os.path.isfile(logo_image):
             return  logo_image
         return  ""
+
 
     def _build_standard_files(self, shots):
         """
@@ -221,7 +223,6 @@ class ShotPlateTurnover(Hook):
 ###############################################################################
 # find entities to build report with
 ###############################################################################
-
     def findTurnoverSegments(self, shots) :
         """
         Find all Segments that have a 'turnover' tag and are connected to 
@@ -250,6 +251,7 @@ class ShotPlateTurnover(Hook):
         self._segments_by_shot = {}
         [self._segments_by_shot.setdefault(s.get(link_field), []).append(s) for s in segments]
 
+
     def findTurnoverVersions(self, shots) :
         """
         Find all Versions that have a 'turnover' tag and are connected to 
@@ -271,6 +273,7 @@ class ShotPlateTurnover(Hook):
         versions = self._app.shotgun.find("Version", ver_filters, ver_fields)
         self._versions_by_shot = {}
         [self._versions_by_shot.setdefault(v.get(link_field), []).append(v) for v in versions]
+
 
     def findTurnoverNotes(self, shots) :
         """
@@ -298,7 +301,6 @@ class ShotPlateTurnover(Hook):
 ###############################################################################
 # build report files (csvs, pdfs, zips, etc)
 ###############################################################################
-
     def buildShotPDF(self, filename, shot):
         """
         Builds the Shot Turnover PDF file using the reportlab API
@@ -343,7 +345,7 @@ class ShotPlateTurnover(Hook):
         # content
         story = []
 
-        # header -- Grey section at top of page
+        # Construct the Header Table data
         release_title = shot.get("sg_sequence.Sequence.sg_release_title") or ""
         vendor_name = (shot.get("sg_awarded_vendor") or {}).get("name") or ""
         vendor_code = shot.get("sg_awarded_vendor.HumanUser.sg_vendor_code") or ""
@@ -359,8 +361,13 @@ class ShotPlateTurnover(Hook):
             ["",shot.get("code"), "Turnover Date", date.today().strftime("%m/%d/%y")],
             ["Turnover Notes : ", turn_notes, "", ""],
         ]
+        # Add an empty row at the bottom for nice spacing
         header_data.append([""]*len(header_data[0]))
+
+        # Specify the column widths for the Header Table.
         col_widths = [quarter_width, half_width, quarter_width/2, quarter_width/2]
+
+        # Create the Header Table and format the cells.
         header = Table(header_data, colWidths=col_widths)
         header.setStyle(TableStyle([
             ("BACKGROUND",  (0,0), (-1,2),  light_grey),
@@ -384,7 +391,7 @@ class ShotPlateTurnover(Hook):
         ]))
         story.append(header)
 
-        # Turnover Materials
+        # Turnover Materials -- first construct the Table data
         material_data = [
             ["Turnover Materials", "Description"]
         ]
@@ -393,8 +400,13 @@ class ShotPlateTurnover(Hook):
             material_data.append([segment.get("code"), segment.get("description")])
         for version in (self._versions_by_shot.get(shot.get("id")) or []):
             material_data.append([version.get("code"), version.get("description")])
+        # Add an empty row for nice spacing
         material_data.append([""]*len(material_data[0]))
+
+        # Specify the Turnover Materials Table column widths
         col_widths = [half_width]*2
+
+        # Create the Turnover Materials Table and format the cells.
         materials = Table(material_data, colWidths=col_widths)
         materials.setStyle(TableStyle([
             ("BACKGROUND",  (0,0), (-1,0),  dark_grey),
@@ -404,7 +416,7 @@ class ShotPlateTurnover(Hook):
         ]))
         story.append(materials)
 
-        # Editorial Information 
+        # Editorial Information -- first construct the Table data
         editorial_data = [
             ["EDITORIAL", "", "", "", "", ""],
             ["Plate", "Plate Range", "Plate IN", "Plate OUT", "Comp IN", "Comp OUT"],
@@ -417,8 +429,13 @@ class ShotPlateTurnover(Hook):
                 float_to_timecode(segment.get("sg_end")),
                 segment.get("sg_timeline_start"),
                 segment.get("sg_timeline_end")])
+        # Add an empty row for nice spacing
         editorial_data.append([""]*len(editorial_data[0]))
+
+        # Specify the Editorial Table column widths
         col_widths = [half_width] + [content_width/10]*5
+
+        # Create the Editorial Table and format the cells.
         editorial = Table(editorial_data, colWidths=col_widths)
         editorial.setStyle(TableStyle([
             ("BACKGROUND",  (0,0), (-1,0),  dark_grey),
@@ -434,11 +451,15 @@ class ShotPlateTurnover(Hook):
         ]))
         story.append(editorial)
 
-        # Notes
+        # Notes -- first construct the Notes Table data
         notes = self._notes_by_shot.get(shot.get("id")) or []
         note_data = [["Notes"]]
         [note_data.append([n.get("content")]) for n in notes]
+
+        # Specify the Notes Table column width(s)
         col_widths = [content_width]
+
+        # Create the Notes Table and format the cells.
         shot_notes = Table(note_data, colWidths=col_widths)
         shot_notes.setStyle(TableStyle([
             ("BACKGROUND",  (0,0), (-1,0),  dark_grey),
