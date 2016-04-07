@@ -9,7 +9,6 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
 # Standard Imports
-import sys
 import math
 import os
 from datetime import date, datetime
@@ -30,7 +29,7 @@ from utilities.templates import NumberedCanvas, OneColDocTemplate
 from utilities.progress_utilities import increment_progress, update_details, update_label
 from utilities.styles import define_text_styles
 
-def float_to_timecode( seconds ) :
+def _float_to_timecode(seconds) :
     """
     Placeholder function to quickly convert a floating point number to a
     timecode without taking fps into account. Functionality should be 
@@ -48,46 +47,6 @@ def float_to_timecode( seconds ) :
     secs = mins_f * 60 
     (secs_f, secs_i) = math.modf(secs)
     return "%02.0f:%02.0f:%02.0f.%s" % (hrs_i, mins_i, secs_i, str(secs_f)[2:4])
-
-
-def attach_report_to_sg_entity(sg, entity, report_pdf, report_type=None, details_thread=None):
-    """
-    Potentially generic proc to attach reports to a given entity
-
-    :param sg: Shotgun instance for the current site
-    :param entity: Shotgun Entity to attach report pdf to
-    :param report_pdf: File path to the report pdf to attach
-    :param report_type: Optional string to set the new Attachment's sg_type to 
-    :param details_thread: Optional thread to send informative messages to via
-                           update_details()
-    """
-    # Make sure an id and type has been specified for the incoming Entity
-    if not entity.get("id") or not entity.get("type"):
-        return
-
-    e_id = entity.get("id")
-    e_type = entity.get("type")
-
-    # Best guess at a name for the entity. Only used for informative messages.
-    e_name = entity.get("code") or entity.get("name") or entity.get("display_name") or e_id
-    e_msg = "%s report for [%s]" % (e_type, e_name)
-
-    # Verify the input pdf exists on disk
-    if not os.path.isfile(report_pdf):
-        msg = ("Cannot upload %s. Report pdf [%s] does not exist." %
-              (e_msg, report_pdf))
-        update_details(details_thread, msg)
-        return
-
-    # Attach the report to the specified entity and update the attachment
-    # type if specified.
-    update_details(details_thread,
-        ("Uploading %s pdf [%s] ..." % (e_msg, os.path.basename(report_pdf))))
-    uploaded_id = sg.upload(e_type, e_id, report_pdf)
-    if report_type and uploaded_id:
-        update_details(details_thread,
-            ("Setting Attachment.sg_type to [%s] ..." % report_type))
-        sg.update("Attachment", uploaded_id, {"sg_type": report_type})
 
 
 class ShotPlateTurnover(Hook):
@@ -155,7 +114,7 @@ class ShotPlateTurnover(Hook):
                                create_zip=zip_files, zip_name="plate_turnovers.zip")
 
 
-    def _jaunt_logo( self ):
+    def _jaunt_logo(self):
         """
         Resolve the path to the Jaunt Logo from Settings and current
         configuration values.
@@ -176,6 +135,43 @@ class ShotPlateTurnover(Hook):
         if os.path.isfile(logo_image):
             return  logo_image
         return  ""
+
+
+    def _attach_report_to_sg_entity(self, entity, report_pdf, report_type=None):
+        """
+        Potentially generic proc to attach reports to a given entity
+
+        :param entity: Shotgun Entity to attach report pdf to
+        :param report_pdf: File path to the report pdf to attach
+        :param report_type: Optional string to set the new Attachment's sg_type to 
+        """
+        # Make sure an id and type has been specified for the incoming Entity
+        if not entity.get("id") or not entity.get("type"):
+            return
+
+        e_id = entity.get("id")
+        e_type = entity.get("type")
+
+        # Best guess at a name for the entity. Only used for informative messages.
+        e_name = entity.get("code") or entity.get("name") or entity.get("display_name") or e_id
+        e_msg = "%s report for [%s]" % (e_type, e_name)
+
+        # Verify the input pdf exists on disk
+        if not os.path.isfile(report_pdf):
+            msg = ("Cannot upload %s. Report pdf [%s] does not exist." %
+                  (e_msg, report_pdf))
+            update_details(self._thread, msg)
+            return
+
+        # Attach the report to the specified entity and update the attachment
+        # type if specified.
+        update_details(self._thread,
+            ("Uploading %s pdf [%s] ..." % (e_msg, os.path.basename(report_pdf))))
+        uploaded_id = self._app.shotgun.upload(e_type, e_id, report_pdf)
+        if report_type and uploaded_id:
+            update_details(self._thread,
+                ("Setting Attachment.sg_type to [%s] ..." % report_type))
+            self._app.shotgun.update("Attachment", uploaded_id, {"sg_type": report_type})
 
 
     def _build_standard_files(self, shots):
@@ -212,17 +208,14 @@ class ShotPlateTurnover(Hook):
             pdfs.append(shot_pdf)
 
             # Upload the report to the Shot for future reference.
-            attach_report_to_sg_entity(self._app.shotgun, shot, shot_pdf, "Turnover PDF", self._thread)
+            self._attach_report_to_sg_entity(shot, shot_pdf, "Turnover PDF")
 
             # Update the progress bar the user is looking at right now.
             self.progress_ct += 1
             increment_progress(self._thread, self.progress_ct)
         return pdfs
     
-    
-###############################################################################
-# find entities to build report with
-###############################################################################
+
     def findTurnoverSegments(self, shots) :
         """
         Find all Segments that have a 'turnover' tag and are connected to 
@@ -247,9 +240,10 @@ class ShotPlateTurnover(Hook):
             "sg_shot_1.Shot.id",
         ]
         link_field = seg_fields[-1]
-        segments = self._app.shotgun.find(seg_entity, seg_filters, seg_fields)
+        segments = self._app.shotgun.find(seg_entity, seg_filters, seg_fields) or []
         self._segments_by_shot = {}
-        [self._segments_by_shot.setdefault(s.get(link_field), []).append(s) for s in segments]
+        for s in segments:
+            self._segments_by_shot.setdefault(s.get(link_field), []).append(s)
 
 
     def findTurnoverVersions(self, shots) :
@@ -270,9 +264,10 @@ class ShotPlateTurnover(Hook):
             "entity.Shot.id",
         ]
         link_field = ver_fields[-1]
-        versions = self._app.shotgun.find("Version", ver_filters, ver_fields)
+        versions = self._app.shotgun.find("Version", ver_filters, ver_fields) or []
         self._versions_by_shot = {}
-        [self._versions_by_shot.setdefault(v.get(link_field), []).append(v) for v in versions]
+        for v in versions:
+            self._versions_by_shot.setdefault(v.get(link_field), []).append(v)
 
 
     def findTurnoverNotes(self, shots) :
@@ -293,14 +288,12 @@ class ShotPlateTurnover(Hook):
             "note_links.Shot.id",
         ]
         link_field = note_fields[-1]
-        notes = self._app.shotgun.find("Note", note_filters, note_fields)
+        notes = self._app.shotgun.find("Note", note_filters, note_fields) or []
         self._notes_by_shot = {}
-        [self._notes_by_shot.setdefault(n.get(link_field), []).append(n) for n in notes]
+        for n in notes:
+            self._notes_by_shot.setdefault(n.get(link_field), []).append(n)
 
 
-###############################################################################
-# build report files (csvs, pdfs, zips, etc)
-###############################################################################
     def buildShotPDF(self, filename, shot):
         """
         Builds the Shot Turnover PDF file using the reportlab API
@@ -357,8 +350,8 @@ class ShotPlateTurnover(Hook):
             header_logo.drawWidth = quarter_width
         header_data = [
             [header_logo, release_title, "Vendor", vendor_name],
-            ["","", "Comp Code", vendor_code],
-            ["",shot.get("code"), "Turnover Date", date.today().strftime("%m/%d/%y")],
+            ["", "", "Comp Code", vendor_code],
+            ["", shot.get("code"), "Turnover Date", date.today().strftime("%m/%d/%y")],
             ["Turnover Notes : ", turn_notes, "", ""],
         ]
         # Add an empty row at the bottom for nice spacing
@@ -424,9 +417,9 @@ class ShotPlateTurnover(Hook):
         for segment in segments :
             editorial_data.append([
                 segment.get("code"),
-                float_to_timecode(segment.get("sg_duration")),
-                float_to_timecode(segment.get("sg_start")),
-                float_to_timecode(segment.get("sg_end")),
+                _float_to_timecode(segment.get("sg_duration")),
+                _float_to_timecode(segment.get("sg_start")),
+                _float_to_timecode(segment.get("sg_end")),
                 segment.get("sg_timeline_start"),
                 segment.get("sg_timeline_end")])
         # Add an empty row for nice spacing
