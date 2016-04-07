@@ -87,6 +87,6 @@ engines:
 # #
 frameworks: 
   tk-framework-shotgunutils_v4.x.x:
-    location: {name: tk-framework-shotgunutils, type: app_store, version: v4.0.1}
+    location: {name: tk-framework-shotgunutils, type: app_store, version: v4.1.0}
   tk-framework-studio_v1.x.x:
-    location: {name: tk-framework-studio, type: app_store, version: v1.3.1}
+    location: {name: tk-framework-studio, type: app_store, version: v1.3.0}
