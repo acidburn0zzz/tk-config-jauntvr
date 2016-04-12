@@ -31,10 +31,8 @@ engines:
    tk-shotgun:
      apps:
       tk-shotgun-reportlab:
-        location: 
-            name: tk-shotgun-reportlab
-            type: dev
-            path: /jaunt/prod/library/shotgun/dev/tk-shotgun-reportlab
+        jaunt_logo_image: '{config}/icons/jaunt_logo.jpg'
+        location: {name: tk-shotgun-reportlab-pi, type: app_store, version: v0.24.0}
         report_hooks:
         - allow_zip_preference: false
           display_name: Plate Turnover
@@ -45,8 +43,6 @@ engines:
           date_time_format: yy_mm_dd_format
           valid_entity_types: [Shot]
           segment_entity: "CustomEntity01"
-
-        jaunt_logo_image: '{config}/icons/jaunt_logo.jpg'
 
 #       tk-multi-launch3dsmax: '@launch_3dsmax'
 #       tk-multi-launchhoudini: '@launch_houdini'
