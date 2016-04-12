@@ -85,7 +85,7 @@ class ShotPlateTurnover(Hook):
         self.progress_ct = progress_ct
     
         # Check to make sure this report can handle the selected entity type
-        valid_types = self._report_config.get("valid_entity_types")
+        valid_types = self._report_config["valid_entity_types"]
         if entity_type not in valid_types:
             raise Exception, "Only %s entity type(s) are supported." % valid_types
 
@@ -109,7 +109,7 @@ class ShotPlateTurnover(Hook):
         turnover_files = self._build_standard_files(shots)
     
         # Package them up 
-        zip_files = self._report_config.get("zip_all_files")
+        zip_files = self._report_config.get("zip_all_files") or False
         return package_reports(self._destination_dir, turnover_files, self._temp_dir,
                                create_zip=zip_files, zip_name="plate_turnovers.zip")
 
@@ -149,8 +149,8 @@ class ShotPlateTurnover(Hook):
         if not entity.get("id") or not entity.get("type"):
             return
 
-        e_id = entity.get("id")
-        e_type = entity.get("type")
+        e_id = entity["id"]
+        e_type = entity["type"]
 
         # Best guess at a name for the entity. Only used for informative messages.
         e_name = entity.get("code") or entity.get("name") or entity.get("display_name") or e_id
@@ -193,13 +193,13 @@ class ShotPlateTurnover(Hook):
         
         # Build a PDF report file for each input Shot.
         for shot in shots:
-            update_details(self._thread, "Building %s PDF" % shot.get("code"))
+            update_details(self._thread, "Building %s PDF" % shot["code"])
 
             # Determine the output file name for the PDF. Includes a time stamp
             # in the file name to prevent files from being overwritten.
             shot_pdf = to_safe_file_name( 
                         "%s_PlateTurnover_%s.pdf" % (
-                            shot.get("code"),
+                            shot["code"],
                             self._app.evaluate_template(self._date_time_format_templ)))
             shot_pdf = os.path.join(self._temp_dir, shot_pdf)
 
@@ -224,9 +224,9 @@ class ShotPlateTurnover(Hook):
         :param shots: List of Shot entities to find turnover Segments for
         :returns: None
         """
-        seg_entity = self._report_config.get("segment_entity")
+        seg_entity = self._report_config["segment_entity"]
         seg_filters = [ 
-            ["sg_shot_1.Shot.id", "in", [s.get("id") for s in shots]],
+            ["sg_shot_1.Shot.id", "in", [s["id"] for s in shots]],
             ["tag_list", "name_is", "turnover"]
         ]
         seg_fields = [
@@ -255,7 +255,7 @@ class ShotPlateTurnover(Hook):
         :returns: None
         """
         ver_filters = [ 
-            ["entity.Shot.id", "in", [s.get("id") for s in shots]],
+            ["entity.Shot.id", "in", [s["id"] for s in shots]],
             ["tag_list", "name_is", "turnover"] 
         ]
         ver_fields = [
@@ -279,7 +279,7 @@ class ShotPlateTurnover(Hook):
         :returns: None
         """
         note_filters = [
-            ["note_links.Shot.id", "in", [s.get("id") for s in shots]],
+            ["note_links.Shot.id", "in", [s["id"] for s in shots]],
             ["sg_status_list", "in", ["ip", "opn"]],
             ["tag_list", "name_is", "turnover"]
         ]
@@ -307,7 +307,7 @@ class ShotPlateTurnover(Hook):
         # grab thumbnails -- Might eventually use this. Keeping for posterity.
         shot["image"] = self._downloaded_thumb_paths["Shot"].get(shot.get("id", -1))
         # if the path doesn't exist on disk, reset the value so it doesn't fail later
-        if shot["image"] and not os.path.exists(shot.get("image")):
+        if shot["image"] and not os.path.exists(shot["image"]):
             shot["image"] = None
         """
             
@@ -351,7 +351,7 @@ class ShotPlateTurnover(Hook):
         header_data = [
             [header_logo, release_title, "Vendor", vendor_name],
             ["", "", "Comp Code", vendor_code],
-            ["", shot.get("code"), "Turnover Date", date.today().strftime("%m/%d/%y")],
+            ["", shot["code"], "Turnover Date", date.today().strftime("%m/%d/%y")],
             ["Turnover Notes : ", turn_notes, "", ""],
         ]
         # Add an empty row at the bottom for nice spacing
@@ -388,11 +388,11 @@ class ShotPlateTurnover(Hook):
         material_data = [
             ["Turnover Materials", "Description"]
         ]
-        segments = self._segments_by_shot.get(shot.get("id")) or []
+        segments = self._segments_by_shot.get(shot["id"]) or []
         for segment in segments:
-            material_data.append([segment.get("code"), segment.get("description")])
-        for version in (self._versions_by_shot.get(shot.get("id")) or []):
-            material_data.append([version.get("code"), version.get("description")])
+            material_data.append([segment["code"], segment["description"]])
+        for version in (self._versions_by_shot.get(shot["id"]) or []):
+            material_data.append([version["code"], version["description"]])
         # Add an empty row for nice spacing
         material_data.append([""]*len(material_data[0]))
 
@@ -416,12 +416,12 @@ class ShotPlateTurnover(Hook):
         ]
         for segment in segments :
             editorial_data.append([
-                segment.get("code"),
-                _float_to_timecode(segment.get("sg_duration")),
-                _float_to_timecode(segment.get("sg_start")),
-                _float_to_timecode(segment.get("sg_end")),
-                segment.get("sg_timeline_start"),
-                segment.get("sg_timeline_end")])
+                segment["code"],
+                _float_to_timecode(segment["sg_duration"]),
+                _float_to_timecode(segment["sg_start"]),
+                _float_to_timecode(segment["sg_end"]),
+                segment["sg_timeline_start"],
+                segment["sg_timeline_end"]])
         # Add an empty row for nice spacing
         editorial_data.append([""]*len(editorial_data[0]))
 
@@ -445,9 +445,9 @@ class ShotPlateTurnover(Hook):
         story.append(editorial)
 
         # Notes -- first construct the Notes Table data
-        notes = self._notes_by_shot.get(shot.get("id")) or []
+        notes = self._notes_by_shot.get(shot["id"]) or []
         note_data = [["Notes"]]
-        [note_data.append([n.get("content")]) for n in notes]
+        [note_data.append([n["content"]]) for n in notes]
 
         # Specify the Notes Table column width(s)
         col_widths = [content_width]
