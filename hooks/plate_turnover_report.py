@@ -13,7 +13,6 @@ import math
 import os
 from datetime import date, datetime
 
-
 # Report Lab Imports
 from reportlab.lib.units import inch, mm
 from reportlab.lib import utils, colors
