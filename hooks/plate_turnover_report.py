@@ -13,7 +13,6 @@ import math
 import os
 from datetime import date, datetime
 
-# Adding comment to quickly force commit
 
 # Report Lab Imports
 from reportlab.lib.units import inch, mm
