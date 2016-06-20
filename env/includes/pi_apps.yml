@@ -76,7 +76,7 @@ tk-multi-importmedia:
   local_transcoding:
   - formats: [mp4, webm, filmstrip, thumbnail, movie_image]
     transcoder: ffmpeg
-  location: {name: tk-multi-importmedia, type: app_store, version: v0.1.1}
+  location: {name: tk-multi-importmedia, type: app_store, version: v0.3.0}
   mandatory_fields: []
   movie_review_formats: [movie, editorial, image]
   path_template: version_file_name
@@ -104,6 +104,8 @@ frameworks:
     location: {type: dev, path: "/jaunt/prod/library/shotgun/premiere/pi-premiere-importcut/frameworks/tk-framework-editorial"}
   tk-framework-wb_v3.x.x:
     location: {name: tk-framework-wb, type: app_store, version: v3.4.0}
+  tk-framework-wb_v4.x.x:
+    location: {name: tk-framework-wb, type: app_store, version: v4.0.0}
   tk-framework-studio_v1.x.x:
     location: {name: tk-framework-studio, type: app_store, version: v1.2.5}
   tk-framework-transcoding_v1.x.x:

@@ -28,37 +28,38 @@ includes:
 #
 
 engines:
-#   tk-shotgun:
-#     apps:
-#       tk-multi-launch3dsmax: '@launch_3dsmax'
-#       tk-multi-launchhiero: '@launch_hiero'
-#       tk-multi-launchhoudini: '@launch_houdini'
-#       tk-multi-launchmari: '@launch_mari'
-#       tk-multi-launchmaya: '@launch_maya'
-#       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
-#       tk-multi-launchnuke: '@launch_nuke'
-#       tk-multi-launchphotoshop: '@launch_photoshop'
-#       tk-multi-launchsoftimage: '@launch_softimage'
-#       tk-multi-screeningroom: '@launch_screeningroom'
-#       tk-shotgun-launchfolder:
-#         deny_permissions: []
-#         deny_platforms: []
-#         location:
-#           name: tk-shotgun-launchfolder
-#           type: app_store
-#           version: v0.1.5
-#     debug_logging: false
-#     location:
-#       name: tk-shotgun
-#       type: app_store
-#       version: v0.5.1
-# #
-# ###############################################################################
-# #
-# # Framework includes.
-# #
-# # Frameworks are libraries that are shared between apps and that contain
-# # common functionality for building UIs and communicating with Shotgun.
-# # Frameworks are automatically installed when apps are installed and udpated.
-# #
-# frameworks: null
+  tk-shotgun:
+    apps:
+      tk-multi-launch3dsmax: '@launch_3dsmax'
+      tk-multi-launchhiero: '@launch_hiero'
+      tk-multi-launchhoudini: '@launch_houdini'
+      tk-multi-launchmari: '@launch_mari'
+      tk-multi-launchmaya: '@launch_maya'
+      tk-multi-launchmotionbuilder: '@launch_motionbuilder'
+      tk-multi-launchnuke: '@launch_nuke'
+      tk-multi-launchnukestudio: '@launch_nukestudio'
+      tk-multi-launchphotoshop: '@launch_photoshop'
+      tk-multi-launchsoftimage: '@launch_softimage'
+      tk-multi-screeningroom: '@launch_screeningroom'
+      tk-shotgun-launchfolder:
+        deny_permissions: []
+        deny_platforms: []
+        location:
+          name: tk-shotgun-launchfolder
+          type: app_store
+          version: v0.1.5
+    debug_logging: false
+    location:
+      name: tk-shotgun
+      type: app_store
+      version: v0.5.1
+#
+###############################################################################
+#
+# Framework includes.
+#
+# Frameworks are libraries that are shared between apps and that contain
+# common functionality for building UIs and communicating with Shotgun.
+# Frameworks are automatically installed when apps are installed and udpated.
+#
+frameworks: null
