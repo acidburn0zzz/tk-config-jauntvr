@@ -905,14 +905,12 @@ engines:
           version: v0.3.0
         sg_in_frame_field: sg_head_in
         sg_out_frame_field: sg_tail_out
-      # tk-multi-importclips:
-      #   location:
-      #     # location: {type: git, path: "https://github.com/shotgunsoftware/tk-multi-importcut.git", version: v1.6.8}
-      #     location:
-      #       type: dev
-      #       path: /Users/mattor/Documents/dev/repos/tk-nuke-importclips
-      #     sg_in_frame_field: sg_head_in
-      #     sg_out_frame_field: sg_tail_out
+      tk-multi-importclips:
+        location:
+          type: dev
+          path: /Users/mattor/Documents/dev/repos/tk-nuke-importclips
+        sg_in_frame_field: sg_head_in
+        sg_out_frame_field: sg_tail_out
       tk-multi-shotgunpanel:
         action_mappings:
           PublishedFile:
