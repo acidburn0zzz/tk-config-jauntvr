@@ -1,0 +1,4 @@
+# Example of a .symlink.yml file 
+
+# A target parameter is required. 
+target: "/jaunt/groups/marketing/Projects/$Project"
