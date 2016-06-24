@@ -907,8 +907,9 @@ engines:
         sg_out_frame_field: sg_tail_out
       tk-multi-importclips:
         location:
-          type: dev
-          path: /Users/mattor/Documents/dev/repos/tk-nuke-importclips
+          name: tk-multi-importclips-jauntvr
+          type: app_store
+          version: v0.0.2
         sg_in_frame_field: sg_head_in
         sg_out_frame_field: sg_tail_out
       tk-multi-shotgunpanel:
