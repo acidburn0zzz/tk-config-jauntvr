@@ -148,9 +148,14 @@ paths:
     #
     # These don't require the standard formatting (with definition and root_name) because they
     # will be set within each template that uses the alias.
-    shot_root: sequences/{Sequence}/{Shot}/{Step}
-    asset_root: assets/{sg_asset_type}/{Asset}/{Step}
-    sequence_root: sequences/{Sequence}
+    # shot_root: sequences/{Sequence}/{Shot}/{Step}
+    # asset_root: assets/{sg_asset_type}/{Asset}/{Step}
+    # sequence_root: sequences/{Sequence}
+
+    shot_root: {Sequence}/{Shot}/{Step}
+    asset_root: library/{sg_asset_type}/{Asset}/{Step}
+    sequence_root: {Sequence}
+
 
 
     ##########################################################################################
@@ -333,43 +338,43 @@ paths:
 
     # define the location of a work area
     shot_work_area_nuke:
-        definition: '@shot_root/work/nuke'
+        definition: '@shot_root/scripts'
         root_name: 'primary'
     # define the location of a publish area
     shot_publish_area_nuke:
-        definition: '@shot_root/publish/nuke'
+        definition: '@shot_root/scripts/publish'
         root_name: 'primary'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/work/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/scripts/nuke/{name}.v{version}.nk'
         root_name: 'primary'
     # The location of backups of WIP files
     nuke_shot_snapshot:
-        definition: '@shot_root/work/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@shot_root/scripts/snapshots/{name}.v{version}.{timestamp}.nk'
         root_name: 'primary'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/publish/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/scripts/publish/nuke/{name}.v{version}.nk'
         root_name: 'primary'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/renders/name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
         root_name: 'primary'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/publish/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/renders/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
         root_name: 'primary'
     nuke_shot_render_stereo:
-        definition: '@shot_root/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/renders/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
         root_name: 'primary'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/publish/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/renders/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
         root_name: 'primary'
     # review output
     shot_quicktime_quick:
-        definition: '@shot_root/review/quickdaily/{Shot}_{name}_{iteration}.mov'
+        definition: '@shot_root/renders/{Shot}_{name}_{iteration}.mov'
         root_name: 'primary'
     nuke_shot_render_movie:
-        definition: '@shot_root/review/{Shot}_{name}_{nuke.output}_v{version}.mov'
+        definition: '@shot_root/renders/{Shot}_{name}_{nuke.output}_v{version}.mov'
         root_name: 'primary'
 
     #
