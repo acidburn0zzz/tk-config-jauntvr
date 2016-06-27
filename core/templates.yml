@@ -1,4 +1,4 @@
-    # Copyright (c) 2015 Shotgun Software Inc.
+# Copyright (c) 2015 Shotgun Software Inc.
 #
 # CONFIDENTIAL AND PROPRIETARY
 #
@@ -27,9 +27,6 @@
 # {Shot}. The section below tells Sgtk which data types and formats to expect for each key.
 #
 keys:
-    version_number:
-        type: int
-        format_spec: "04"
     Sequence:
         type: str
     Shot:
@@ -74,10 +71,9 @@ keys:
     houdini.node:
         alias: node
         type: str
-    now:
-        type: timestamp
-        format_spec: "%m/%d/%Y at %I:%M%p"
-        default: now
+    aov_name:
+        type: str
+
     # these are used by the Hiero exporter and pipeline
     YYYY:
         type: int
@@ -113,17 +109,36 @@ keys:
         type: str
         shotgun_entity_type: Task
         shotgun_field_name: content
-    version_name:
+
+    # Maya supports two extension types.
+    maya_extension:
         type: str
-        filter_by: "^[0-9a-zA-Z_-]*$"
+        choices:
+            ma: Maya Ascii (.ma)
+            mb: Maya Binary (.mb)
+        default: ma
+        alias: extension
+
+    # Aftermarket keys
+    version_number:
+        type: int
+        format_spec: "04"
+    now:
+        type: timestamp
+        format_spec: "%m/%d/%Y at %I:%M%p"
+        default: now
+    ext:
+        type: str
     frame_number:
         type: str
         filter_by: '(%0\d+d)|(\d+)'
+    version_name:
+        type: str
+        filter_by: "^[0-9a-zA-Z_-]*$"
     stereo_eye:
         type: str
         choices: ['l', 'left', 'r', 'right', 's', 'stereo', '%v']
-    ext:
-        type: str
+
 #
 # The paths section contains all the the key locations where files are to be stored
 # by Sgtk Apps. Each path is made up of several keys (like {version} or {shot}) and
@@ -231,15 +246,15 @@ paths:
         root_name: 'primary'
     # The location of WIP files
     maya_shot_work:
-        definition: '@shot_root/work/maya/{name}.v{version}.ma'
+        definition: '@shot_root/work/maya/{name}.v{version}.{maya_extension}'
         root_name: 'primary'
     # The location of backups of WIP files
     maya_shot_snapshot:
-        definition: '@shot_root/work/maya/snapshots/{name}.v{version}.{timestamp}.ma'
+        definition: '@shot_root/work/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
         root_name: 'primary'
     # The location of published maya files
     maya_shot_publish:
-        definition: '@shot_root/publish/maya/{name}.v{version}.ma'
+        definition: '@shot_root/publish/maya/{name}.v{version}.{maya_extension}'
         root_name: 'primary'
 
 
@@ -269,11 +284,25 @@ paths:
         root_name: 'primary'
     # Alembic caches
     houdini_shot_work_alembic_cache:
-        definition: '@shot_root/work/houdini/cache/alembic/{name}/v{version}/{Shot}_{name}_v{version}_{houdini.node}.abc'
+        definition: '@shot_root/work/houdini/cache/alembic/{name}/{houdini.node}/v{version}/{Shot}_{name}_v{version}.abc'
         root_name: 'primary'
+
     # Rendered images
     houdini_shot_render:
-        definition: '@shot_root/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/work/images/{name}/{houdini.node}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.exr'
+        root_name: 'primary'
+
+    # Additional mantra outputs
+    houdini_shot_ifd:
+        definition: '@shot_root/work/ifds/{name}/{houdini.node}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.ifd'
+        root_name: 'primary'
+
+    houdini_shot_dcm:
+        definition: '@shot_root/work/dcms/{name}/{houdini.node}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.dcm'
+        root_name: 'primary'
+
+    houdini_shot_extra_plane:
+        definition: '@shot_root/work/images/{name}/{houdini.node}/{aov_name}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.exr'
         root_name: 'primary'
 
 
@@ -471,15 +500,15 @@ paths:
         root_name: 'primary'
     # The location of WIP files
     maya_asset_work:
-        definition: '@asset_root/work/maya/{name}.v{version}.ma'
+        definition: '@asset_root/work/maya/{name}.v{version}.{maya_extension}'
         root_name: 'primary'
     # The location of backups of WIP files
     maya_asset_snapshot:
-        definition: '@asset_root/work/maya/snapshots/{name}.v{version}.{timestamp}.ma'
+        definition: '@asset_root/work/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
         root_name: 'primary'
     # The location of published maya files
     maya_asset_publish:
-        definition: '@asset_root/publish/maya/{name}.v{version}.ma'
+        definition: '@asset_root/publish/maya/{name}.v{version}.{maya_extension}'
         root_name: 'primary'
 
 
@@ -509,11 +538,25 @@ paths:
         root_name: 'primary'
     # Alembic caches
     houdini_asset_work_alembic_cache:
-        definition: '@asset_root/work/houdini/cache/alembic/{name}/v{version}/{Asset}_{name}_v{version}_{houdini.node}.abc'
+        definition: '@asset_root/work/houdini/cache/alembic/{name}/{houdini.node}/v{version}/{Asset}_{name}_v{version}.abc'
         root_name: 'primary'
+
     # Rendered images
     houdini_asset_render:
-        definition: '@asset_root/work/images/{name}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/work/images/{name}/{houdini.node}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.exr'
+        root_name: 'primary'
+
+    # Additional mantra outputs
+    houdini_asset_ifd:
+        definition: '@asset_root/work/ifds/{name}/{houdini.node}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.ifd'
+        root_name: 'primary'
+
+    houdini_asset_dcm:
+        definition: '@asset_root/work/dcms/{name}/{houdini.node}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.dcm'
+        root_name: 'primary'
+
+    houdini_asset_extra_plane:
+        definition: '@asset_root/work/images/{name}/{houdini.node}/{aov_name}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.exr'
         root_name: 'primary'
 
 

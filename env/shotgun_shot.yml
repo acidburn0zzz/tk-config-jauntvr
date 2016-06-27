@@ -28,8 +28,8 @@ includes:
 #
 
 engines:
-   tk-shotgun:
-     apps:
+  tk-shotgun:
+    apps:
       tk-shotgun-reportlab:
         jaunt_logo_image: '{config}/icons/jaunt_logo.jpg'
         location: {name: tk-shotgun-reportlab-pi, type: app_store, version: v0.24.0}
@@ -43,45 +43,44 @@ engines:
           date_time_format: yy_mm_dd_format
           valid_entity_types: [Shot]
           segment_entity: "CustomEntity01"
+      tk-multi-launch3dsmax: '@launch_3dsmax'
+      tk-multi-launchhoudini: '@launch_houdini'
+      tk-multi-launchmaya: '@launch_maya'
+      tk-multi-launchmotionbuilder: '@launch_motionbuilder'
+      tk-multi-launchnuke: '@launch_nuke'
+      tk-multi-launchphotoshop: '@launch_photoshop'
+      tk-multi-launchsoftimage: '@launch_softimage'
+      tk-multi-screeningroom: '@launch_screeningroom'
+      tk-shotgun-folders:
+        deny_permissions: []
+        deny_platforms: []
+        location:
+          name: tk-shotgun-folders
+          type: app_store
+          version: v0.1.5
+      tk-shotgun-launchfolder:
+        deny_permissions: []
+        deny_platforms: []
+        location:
+          name: tk-shotgun-launchfolder
+          type: app_store
+          version: v0.1.5
+    debug_logging: false
+    location:
+      name: tk-shotgun
+      type: app_store
+      version: v0.5.1
 
-#       tk-multi-launch3dsmax: '@launch_3dsmax'
-#       tk-multi-launchhoudini: '@launch_houdini'
-#       tk-multi-launchmaya: '@launch_maya'
-#       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
-#       tk-multi-launchnuke: '@launch_nuke'
-#       tk-multi-launchphotoshop: '@launch_photoshop'
-#       tk-multi-launchsoftimage: '@launch_softimage'
-#       tk-multi-screeningroom: '@launch_screeningroom'
-#       tk-shotgun-folders:
-#         deny_permissions: []
-#         deny_platforms: []
-#         location:
-#           name: tk-shotgun-folders
-#           type: app_store
-#           version: v0.1.5
-#       tk-shotgun-launchfolder:
-#         deny_permissions: []
-#         deny_platforms: []
-#         location:
-#           name: tk-shotgun-launchfolder
-#           type: app_store
-#           version: v0.1.5
-     debug_logging: false
-     location:
-       name: tk-shotgun
-       type: app_store
-       version: v0.5.1
-
-# #
-# ###############################################################################
-# #
-# # Framework includes.
-# #
-# # Frameworks are libraries that are shared between apps and that contain
-# # common functionality for building UIs and communicating with Shotgun.
-# # Frameworks are automatically installed when apps are installed and udpated.
-# #
-frameworks: 
+#
+###############################################################################
+#
+# Framework includes.
+#
+# Frameworks are libraries that are shared between apps and that contain
+# common functionality for building UIs and communicating with Shotgun.
+# Frameworks are automatically installed when apps are installed and udpated.
+#
+frameworks:
   tk-framework-shotgunutils_v4.x.x:
     location: {name: tk-framework-shotgunutils, type: app_store, version: v4.1.0}
   tk-framework-studio_v1.x.x:

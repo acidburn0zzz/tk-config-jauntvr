@@ -16,25 +16,33 @@
 #
 # Mari
 #
-mari_linux: 'Mari2.6'
-mari_mac: /Applications/Mari2.6v2
-mari_windows: 'C:\Program Files\Mari2.6v2\Bundle\bin\Mari2.6v2.exe'
+mari_linux: 'Mari3.0'
+mari_mac: /Applications/Mari3.0v2
+mari_windows: 'C:\Program Files\Mari3.0v2\Bundle\bin\Mari3.0v2.exe'
 
 
 #
 # Maya
 #
-maya_windows: 'C:\Program Files\Autodesk\Maya2015\bin\maya.exe'
-maya_mac: /Applications/Autodesk/maya2015/Maya.app
+maya_windows: 'C:\Program Files\Autodesk\Maya2016\bin\maya.exe'
+maya_mac: /Applications/Autodesk/maya2016/Maya.app
 maya_linux: maya
 
 
 #
-# nuke
+# Nuke
 #
 nuke_mac: /Applications/Nuke9.0v7/Nuke9.0v7.app
-nuke_windows: 'C:\Program Files\Nuke9.0v7\Nuke9.0.exe'
+nuke_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
 nuke_linux: Nuke9.0
+
+
+#
+# Nuke Studio
+#
+nukestudio_mac: /Applications/Nuke9.0v8/NukeStudio9.0v8.app
+nukestudio_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
+nukestudio_linux: Nuke9.0
 
 
 #
@@ -73,24 +81,10 @@ photoshop_extras:
 
 
 #
-# Premiere
-#
-premiere_mac: /Applications/Adobe Premiere Pro CC 2015/Adobe Premiere Pro CC 2015.app
-premiere_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2015\Premiere.exe'
-premiere_extras:
-    mac_extension_manager_path: /Applications/Adobe Extension Manager CS6/Adobe Extension Manager CS6.app
-    # An empty Python path will cause the engine to default to using the "current"
-    # Python that the engine is running in. This is often the best approach, as it
-    # should guarantee all necessary Python libraries are available.
-    mac_python_path: ''
-    windows_extension_manager_path: 'C:\Program Files (x86)\Adobe\Adobe Extension Manager CS6\XManCommand.exe'
-    windows_python_path: ''
-
-#
 # Hiero
 #
-hiero_mac: /Applications/Nuke9.0v7/Nuke9.0v7.app
-hiero_win: 'C:\Program Files\Nuke9.0v7\Nuke9.0.exe'
+hiero_mac: /Applications/Nuke9.0v8/Hiero9.0v8.app
+hiero_win: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
 hiero_linux: Nuke9.0
 
 
@@ -107,3 +101,17 @@ softimage_linux: XSI
 rv_mac: /Applications/RV64.app
 rv_win: C:\Program Files\RV\RV64.exe
 rv_linux: rv
+
+#
+# Premiere
+#
+premiere_mac: /Applications/Adobe Premiere Pro CC 2015.3/Adobe Premiere Pro CC 2015.app
+premiere_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2015\Premiere.exe'
+premiere_extras:
+    mac_extension_manager_path: /Applications/Adobe Extension Manager CS6/Adobe Extension Manager CS6.app
+    # An empty Python path will cause the engine to default to using the "current"
+    # Python that the engine is running in. This is often the best approach, as it
+    # should guarantee all necessary Python libraries are available.
+    mac_python_path: ''
+    windows_extension_manager_path: 'C:\Program Files (x86)\Adobe\Adobe Extension Manager CS6\XManCommand.exe'
+    windows_python_path: ''
