@@ -1,0 +1,18 @@
+# the type of dynamic content
+type: "static"
+
+# pick one of the shotgun folders that are above this folder
+# in the folder hierarchy. In this case it is a parent folder
+# named step that we want to look at when deciding if this
+# static folder should be created or not.
+constrain_by_entity: "$step"
+
+# we can now define constraints for this step. Constraints are simple
+# Shotgun queries, following the same syntax as the other shotgun filters
+# shown in previous sections.
+#
+# In our example, if the parent step matches the constraints given
+# in the filter below, the static folder will be created. If not,
+# it (and its children) will be ignored by the folder creation process. 
+constraints:
+    - { "path": "short_name", "relation": "in", "values": [ "Light, Comp" ] }
