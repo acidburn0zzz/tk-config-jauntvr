@@ -105,7 +105,7 @@ rv_linux: rv
 #
 # Premiere
 #
-premiere_mac: /Applications/Adobe Premiere Pro CC 2015/Adobe Premiere Pro CC 2015.app
+premiere_mac: /Applications/Adobe Premiere Pro CC 2015.3/Adobe Premiere Pro CC 2015.app
 premiere_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2015\Premiere.exe'
 premiere_extras:
     mac_extension_manager_path: /Applications/Adobe Extension Manager CS6/Adobe Extension Manager CS6.app
