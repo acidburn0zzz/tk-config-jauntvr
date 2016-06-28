@@ -32,17 +32,17 @@ maya_linux: maya
 #
 # Nuke
 #
-nuke_mac: /Applications/Nuke9.0v7/Nuke9.0v7.app
+nuke_mac: /jaunt/apps/nuke/10.0v1/Nuke10.0v1.app
 nuke_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
-nuke_linux: Nuke9.0
+nuke_linux: /jaunt/apps/nuke/10.0v1/Nuke10.0 --nukex
 
 
 #
 # Nuke Studio
 #
-nukestudio_mac: /Applications/Nuke9.0v8/NukeStudio9.0v8.app
+nukestudio_mac: /jaunt/apps/nuke/10.0v1/Nuke10.0v1.app
 nukestudio_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
-nukestudio_linux: Nuke9.0
+nukestudio_linux: /jaunt/apps/nuke/10.0v1/Nuke10.0 --nukex
 
 
 #
