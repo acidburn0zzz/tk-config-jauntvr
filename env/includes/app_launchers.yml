@@ -188,7 +188,7 @@ launch_nuke:
 # -------------------------------------------------
 # NukeX
 # -------------------------------------------------
-launch_nuke:
+launch_nukex:
   defer_keyword: ''
   engine: tk-nukex
   extra: {}
@@ -202,7 +202,7 @@ launch_nuke:
     type: app_store
     name: tk-multi-launchapp
   mac_args: ''
-  mac_path: '@nukxe_mac'
+  mac_path: '@nukex_mac'
   menu_name: Launch NukeX
   versions: []
   windows_args: ''
