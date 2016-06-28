@@ -29,12 +29,21 @@ maya_mac: /Applications/Autodesk/maya2016/Maya.app
 maya_linux: maya
 
 
+
+#
+# NukeX
+#
+nukex_mac: /jaunt/apps/nuke/10.0v1/Nuk10.0v1.app
+nukex_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
+nukex_linux: /jaunt/apps/nuke/10.0v1/Nuke10.0 --nukex
+
+
 #
 # Nuke
 #
 nuke_mac: /jaunt/apps/nuke/10.0v1/Nuke10.0v1.app
 nuke_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
-nuke_linux: /jaunt/apps/nuke/10.0v1/Nuke10.0 --nukex
+nuke_linux: /jaunt/apps/nuke/10.0v1/Nuke10.0
 
 
 #
