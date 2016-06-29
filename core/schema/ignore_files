@@ -9,6 +9,7 @@
 #
 
 placeholder
+.jaunt
 
 # ignore mac files
 .DS_Store
