@@ -17,13 +17,14 @@ from datetime import date, datetime
 from reportlab.lib.units import inch, mm
 from reportlab.lib import utils, colors
 from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import Table, Paragraph, Image, Frame
 from reportlab.platypus import TableStyle, FrameBreak, Spacer, KeepInFrame
 
 from tank import Hook
 
 # pull in utilities for hooks
-from utilities.utilities import retrieve_thumbnails, find_entities_by_ids
+from utilities.utilities import retrieve_thumbnails, find_entities_by_ids, safe_para
 from utilities.utilities import to_safe_file_name, make_temp_dir, package_reports
 from utilities.templates import NumberedCanvas, OneColDocTemplate
 from utilities.progress_utilities import increment_progress, update_details, update_label
@@ -89,15 +90,21 @@ class ShotPlateTurnover(Hook):
         if entity_type not in valid_types:
             raise Exception, "Only %s entity type(s) are supported." % valid_types
 
+        # Determine what type of turnover report this is
+        turnover_type = str(report_hook_config.get("short_name")).split("_")[0]
+
         # grab shots
         update_details(self._thread, "Finding shots")
         shot_fields = [
             "code", 
-            "sg_sequence.Sequence.sg_release_title", 
-            "sg_awarded_vendor", 
-            "sg_awarded_vendor.HumanUser.sg_vendor_code", 
+            "project.Project.sg_release_title",
             "sg_turnover_notes___linked_field", 
         ]
+        if turnover_type == "plate": 
+            shot_fields.extend([
+                "sg_awarded_vendor", 
+                "sg_awarded_vendor.HumanUser.sg_vendor_code", 
+            ])
         shots = find_entities_by_ids(self._app.shotgun, entity_type, entity_ids, shot_fields, [])
         
         # Load thumbnails to display in report, if ever requested.
@@ -106,7 +113,7 @@ class ShotPlateTurnover(Hook):
         
         # Build the PDF files
         update_label(self._thread, "Building PDFs...")
-        turnover_files = self._build_standard_files(shots)
+        turnover_files = self._build_standard_files(shots, turnover_type)
     
         # Package them up 
         zip_files = self._report_config.get("zip_all_files") or False
@@ -174,7 +181,7 @@ class ShotPlateTurnover(Hook):
             self._app.shotgun.update("Attachment", uploaded_id, {"sg_type": report_type})
 
 
-    def _build_standard_files(self, shots):
+    def _build_standard_files(self, shots, turnover_type):
         """
         Gathers relevant data from Shotgun and create a report for 
         each input Shot
@@ -197,11 +204,11 @@ class ShotPlateTurnover(Hook):
 
             # Determine the output file name for the PDF. Includes a time stamp
             # in the file name to prevent files from being overwritten.
-            shot_pdf = to_safe_file_name( 
-                        "%s_PlateTurnover_%s.pdf" % (
+            pdf_basename = "%s_%sTurnover_%s.pdf" % (
                             shot["code"],
-                            self._app.evaluate_template(self._date_time_format_templ)))
-            shot_pdf = os.path.join(self._temp_dir, shot_pdf)
+                            str(turnover_type).capitalize(),
+                            self._app.evaluate_template(self._date_time_format_templ))
+            shot_pdf = os.path.join(self._temp_dir, to_safe_file_name(pdf_basename))
 
             # Build the PDF with reportlab mojo
             self.buildShotPDF(shot_pdf, shot)
@@ -334,31 +341,36 @@ class ShotPlateTurnover(Hook):
         dark_grey = colors.Color(0.66, 0.66, 0.66)
         light_grey = colors.Color(0.8, 0.8, 0.8)
         jaunt_green = colors.Color(0.741, 1, 0)
+        note_style = ParagraphStyle(fontName="Helvetica", name="NoteText")
 
         # content
         story = []
 
         # Construct the Header Table data
-        release_title = shot.get("sg_sequence.Sequence.sg_release_title") or ""
+        release_title = shot.get("project.Project.sg_release_title") or ""
         vendor_name = (shot.get("sg_awarded_vendor") or {}).get("name") or ""
+        vendor_label = "Vendor" if vendor_name else ""
         vendor_code = shot.get("sg_awarded_vendor.HumanUser.sg_vendor_code") or ""
-        turn_notes = shot.get("sg_turnover_notes__linked_field") or ""
+        vendor_code_label = "Comp Code" if vendor_code else ""
+        date_label = "Turnover Date" if vendor_label else "Bid Material Sent"
+        turn_notes = safe_para(shot.get("sg_turnover_notes___linked_field") or "",
+                               note_style)
         header_logo = self._jaunt_logo()
         if header_logo:
             header_logo = Image(header_logo)
             header_logo.drawHeight = quarter_width*header_logo.drawHeight / header_logo.drawWidth
             header_logo.drawWidth = quarter_width
         header_data = [
-            [header_logo, release_title, "Vendor", vendor_name],
-            ["", "", "Comp Code", vendor_code],
-            ["", shot["code"], "Turnover Date", date.today().strftime("%m/%d/%y")],
-            ["Turnover Notes : ", turn_notes, "", ""],
+            [header_logo,           release_title,      vendor_label,       vendor_name],
+            ["",                    "",                 vendor_code_label,  vendor_code],
+            ["",                    shot["code"],       date_label,         date.today().strftime("%m/%d/%y")],
+            ["Turnover Notes : ",   turn_notes,         "",                 ""],
         ]
         # Add an empty row at the bottom for nice spacing
         header_data.append([""]*len(header_data[0]))
 
         # Specify the column widths for the Header Table.
-        col_widths = [quarter_width, half_width, quarter_width/2, quarter_width/2]
+        col_widths = [quarter_width, 0.9*half_width, 1.2*quarter_width/2, 1.2*quarter_width/2]
 
         # Create the Header Table and format the cells.
         header = Table(header_data, colWidths=col_widths)
@@ -368,19 +380,20 @@ class ShotPlateTurnover(Hook):
             ("VALIGN",      (0,0), (0,2),   "TOP"),
             ("SPAN",        (1,0), (1,1)),
             ("ALIGN",       (1,0), (1,2),   "CENTER"),
-            ("VALIGN",      (1,0), (1,2),   "TOP"),
-            ("FONT",        (1,0), (1,0),   "Helvetica-BoldOblique", 14),
-            ("FONT",        (1,2), (1,2),   "Helvetica-Bold", 14),
+            ("VALIGN",      (1,0), (1,2),   "MIDDLE"),
+            ("FONT",        (1,0), (1,0),   "Helvetica-Bold", 18),
+            ("FONT",        (1,1), (1,2),   "Helvetica-Bold", 14),
             ("ALIGN",       (2,0), (2,2),   "LEFT"),
             ("FONT",        (2,0), (2,2),   "Helvetica-Oblique", 12),
             ("ALIGN",       (3,0), (3,2),   "RIGHT"),
             ("FONT",        (3,0), (3,2),   "Helvetica", 12),
             ("LINEBELOW",   (0,2), (-1,2),  2, jaunt_green),
             ("ALIGN",       (0,3), (0,3),   "LEFT"),
+            ("VALIGN",      (0,3), (0,3),   "TOP"),
             ("FONT",        (0,3), (0,3),   "Helvetica-BoldOblique", 12),
             ("SPAN",        (1,3), (-1,3)),
             ("ALIGN",       (1,3), (-1,3),  "LEFT"),
-            ("FONT",        (1,3), (-1,3),  "Helvetica", 10),
+            ("FONT",        (1,3), (-1,3),  "Helvetica", 12),
         ]))
         story.append(header)
 
@@ -447,7 +460,7 @@ class ShotPlateTurnover(Hook):
         # Notes -- first construct the Notes Table data
         notes = self._notes_by_shot.get(shot["id"]) or []
         note_data = [["Notes"]]
-        [note_data.append([n["content"]]) for n in notes]
+        [note_data.append([safe_para(n["content"], note_style)]) for n in notes]
 
         # Specify the Notes Table column width(s)
         col_widths = [content_width]
@@ -458,7 +471,7 @@ class ShotPlateTurnover(Hook):
             ("BACKGROUND",  (0,0), (-1,0),  dark_grey),
             ("FONT",        (0,0), (-1,0),  "Helvetica-BoldOblique", 12),
             ("ALIGN",       (0,0), (-1,-1), "LEFT"),
-            ("FONT",        (0,1), (-1,-1), "Helvetica", 10),
+            ("FONT",        (0,1), (-1,-1), "Helvetica", 12),
         ]))
         story.append(shot_notes)
 
