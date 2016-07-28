@@ -52,8 +52,8 @@ tk-multi-importcut:
     # cut_link_field: sg_link
     cut_link_field: sg_entity
     default_head_in: 1001
-    default_head_in_duration: 0
-    default_tail_out_duration: 0
+    default_head_in_duration: 30
+    default_tail_out_duration: 30
     display_name: Cut Import
     ensure_sg_setup_hook: '{self}/post_install.py'
     location: {name: tk-multi-importcut, type: app_store, version: v1.5.1.pi}
