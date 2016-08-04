@@ -10,7 +10,7 @@
 #
 
 description: This environment controls what items should be shown on the menu in Shotgun
-             for shots.
+  for shots. 
 
 #################################################################################################
 # include common definitions for all the launchers that are used to start maya, nuke etc.
@@ -42,7 +42,7 @@ engines:
           valid_environments: [shot]
           date_time_format: yy_mm_dd_format
           valid_entity_types: [Shot]
-          segment_entity: "CustomEntity01"
+          segment_entity: CustomEntity01
         - allow_zip_preference: false
           display_name: Turnover Report - Bid
           enable_vendor_specific_data: false
@@ -51,7 +51,7 @@ engines:
           valid_environments: [shot]
           date_time_format: yy_mm_dd_format
           valid_entity_types: [Shot]
-          segment_entity: "CustomEntity01"
+          segment_entity: CustomEntity01
       tk-multi-launch3dsmax: '@launch_3dsmax'
       tk-multi-launchhoudini: '@launch_houdini'
       tk-multi-launchmaya: '@launch_maya'
@@ -91,6 +91,9 @@ engines:
 #
 frameworks:
   tk-framework-shotgunutils_v4.x.x:
-    location: {name: tk-framework-shotgunutils, type: app_store, version: v4.1.0}
+    location:
+      version: v4.4.0
+      type: app_store
+      name: tk-framework-shotgunutils
   tk-framework-studio_v1.x.x:
     location: {name: tk-framework-studio, type: app_store, version: v1.3.0}
