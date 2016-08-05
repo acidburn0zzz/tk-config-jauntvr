@@ -384,7 +384,7 @@ paths:
         root_name: 'primary'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/renders/name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/renders/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
         root_name: 'primary'
     nuke_shot_render_pub_mono_dpx:
         definition: '@shot_root/renders/publish/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
