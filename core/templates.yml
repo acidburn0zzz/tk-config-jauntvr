@@ -372,7 +372,7 @@ paths:
         root_name: 'primary'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/scripts/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/scripts/{name}.v{version}.nk'
         root_name: 'primary'
     # The location of backups of WIP files
     nuke_shot_snapshot:
@@ -380,7 +380,7 @@ paths:
         root_name: 'primary'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/scripts/publish/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/scripts/publish/{name}.v{version}.nk'
         root_name: 'primary'
     # write node outputs
     nuke_shot_render_mono_dpx:
