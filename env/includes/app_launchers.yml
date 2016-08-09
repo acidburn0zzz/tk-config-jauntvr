@@ -170,7 +170,7 @@ launch_nuke:
   engine: tk-nuke
   extra: {}
   hook_app_launch: default
-  hook_before_app_launch: default
+  hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nuke_linux'
@@ -193,7 +193,7 @@ launch_nukex:
   engine: tk-nukex
   extra: {}
   hook_app_launch: default
-  hook_before_app_launch: default
+  hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nukex_linux'
@@ -216,7 +216,7 @@ launch_nukestudio:
   engine: tk-nukestudio
   extra: {}
   hook_app_launch: default
-  hook_before_app_launch: default
+  hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_nukestudio_256.png'
   linux_args: --studio
   linux_path: '@nukestudio_linux'
