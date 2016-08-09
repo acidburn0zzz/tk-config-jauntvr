@@ -61,13 +61,27 @@ class BeforeNukeLaunch(tank.Hook):
         cmd = 'source %s' % profile_path
         dump = '/usr/bin/python -c "import os,pickle; print pickle.dumps(os.environ)"'
 	
-        penv = os.popen('%s && %s' % (cmd,dump))
+        try:
+            penv = os.popen('%s && %s' % (cmd,dump))
+        except OSError as e:
+            multi_launchapp.log_info("Could not create environment context!")
+            multi_launchapp.log_info("OSError %s" % e.errno)  
+            multi_launchapp.log_info("OSError %s" % e.filename)
+            multi_launchapp.log_info("OSError %s" % e.filename)    
+        except:
+            multi_launchapp.log_info("Could not create environment context!" + sys.exc_info()[0])
+            
         env = pickle.loads(penv.read())
         os.environ = env
               
         tank.util.prepend_path_to_env_var("NUKE_PATH", os.environ["NUKE_PATH"])
         tank.util.prepend_path_to_env_var("PATH", os.environ["PATH"])
         tank.util.prepend_path_to_env_var("PYTHONPATH", os.environ["PYTHONPATH"])
+            
+        
+        # multi_launchapp.log_info("NUKE PATH: " + os.environ["NUKE_PATH"])
+        # multi_launchapp.log_info("PATH: " + os.environ["PATH"])
+        # multi_launchapp.log_info("PYTHONPATH: " + os.environ["PYTHONPATH"])
             
         
         
