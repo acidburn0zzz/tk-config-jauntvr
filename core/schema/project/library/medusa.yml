@@ -1,0 +1,2 @@
+type : "static"
+permissions : { 'mode': 0775, 'user': 'shotgun', 'group' : 'services'}
