@@ -60,7 +60,7 @@ class BeforeNukeLaunch(tank.Hook):
         profile_path = "%s/.profile_jaunt" % home_path
         cmd = 'source %s' % profile_path
         dump = '/usr/bin/python -c "import os,pickle; print pickle.dumps(os.environ)"'
-	
+
         try:
             penv = os.popen('%s && %s' % (cmd,dump))
         except OSError as e:
