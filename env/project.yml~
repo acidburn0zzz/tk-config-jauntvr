@@ -357,6 +357,56 @@ engines:
         hook_secondary_publish: default
         primary_icon: ''
         primary_description: Publish and version up the current work file
+      tk-multi-loader2:
+        location:
+          version: v1.11.2
+          type: app_store
+          name: tk-multi-loader2
+        publish_filters: []
+        filter_publishes_hook: '{self}/filter_publishes.py'
+        action_mappings:
+          Nuke Script:
+          - script_import
+          Rendered Image:
+          - read_node
+        menu_name: Load
+        entities:
+        - hierarchy:
+          - sg_asset_type
+          - code
+          caption: Assets
+          publish_filters: []
+          filters:
+          - - project
+            - is
+            - '{context.project}'
+          entity_type: Asset
+        - hierarchy:
+          - sg_sequence
+          - code
+          caption: Shots
+          publish_filters: []
+          filters:
+          - - project
+            - is
+            - '{context.project}'
+          entity_type: Shot
+        - hierarchy:
+          - entity
+          - content
+          caption: My Tasks
+          publish_filters: []
+          filters:
+          - - task_assignees
+            - is
+            - '{context.user}'
+          - - project
+            - is
+            - '{context.project}'
+          entity_type: Task
+        actions_hook: '{self}/tk-nuke_actions.py'
+        title_name: Loader
+        download_thumbnails: true
       tk-multi-pythonconsole:
         location:
           version: v0.0.1
