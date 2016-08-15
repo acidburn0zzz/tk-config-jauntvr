@@ -53,12 +53,12 @@ engines:
           valid_entity_types: [Shot]
           segment_entity: CustomEntity01
       tk-multi-launch3dsmax: '@launch_3dsmax'
-      tk-multi-launchhoudini: '@launch_houdini'
+      # tk-multi-launchhoudini: '@launch_houdini'
       tk-multi-launchmaya: '@launch_maya'
       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
       tk-multi-launchnuke: '@launch_nuke'
       tk-multi-launchphotoshop: '@launch_photoshop'
-      tk-multi-launchsoftimage: '@launch_softimage'
+      # tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'
       tk-shotgun-folders:
         deny_permissions: []

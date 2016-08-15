@@ -115,6 +115,14 @@ workfiles2-launch-at-startup:
   template_work:
   template_work_area:
   version_compare_ignore_fields: []
+    
+setframerange:
+  location:
+    name: tk-multi-setframerange
+    type: app_store
+    version: v0.3.0
+  sg_in_frame_field: sg_head_in
+  sg_out_frame_field: sg_tail_out
   
 ###############################################################################
 #
