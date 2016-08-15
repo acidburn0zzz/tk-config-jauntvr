@@ -25,6 +25,5 @@ class SnapshotHistoryPostQuickdaily(Hook):
             comment += "Quicktime: %s" % mov_path
             snapshot_app.snapshot(comment)
         except TankError:
-            app.log_warning("Unable to snapshot movie to shotgun: %s" % e)
             # fine, means file wasn't a proper snapshot
             pass

@@ -716,7 +716,7 @@ strings:
     # when a review Version in Shotgun is created inside of Nuke, this is the
     # name that is being given to it (the code field)
     nuke_shot_version_name: "{Shot}_{name}_{nuke.output}_v{version}.{iteration}"
-    nuke_quick_shot_version_name: "{Shot}_{name}_v{version}_quick_{iteration}"
+    nuke_quick_shot_version_name: "{Shot}_{name}_{version}_quick_{iteration}"
 
     nuke_asset_version_name: "{Asset}_{name}_{nuke.output}_v{version}.{iteration}"
     nuke_quick_asset_version_name: "{Asset}_{name}_quick_{iteration}"
