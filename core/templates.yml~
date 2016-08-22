@@ -413,19 +413,15 @@ paths:
         definition: '@shot_root/renders/publish/{nuke_name}/v{version}/{width}x{height}/{Shot}_{nuke_name}_v{version}.{SEQ}.exr'
         root_name: 'primary'
 
-#    nuke_shot_render_mono_dpx:
-#        definition: '@shot_root/renders/{nuke_name}/v{version}/{width}x{height}/{Shot}_{nuke_name}_[{eye}]_v{version}.{SEQ}.dpx'
-#        root_name: 'primary'
-#    nuke_shot_render_pub_mono_dpx:
-#        definition: '@shot_root/renders/publish/{nuke_name}/v{version}/{width}x{height}/{Shot}_{nuke_name}_[{eye}]_v{version}.{SEQ}.dpx'
-#        root_name: 'primary'
-
     # review output
     shot_quicktime_quick:
         definition: '@shot_root/renders/{Shot}_{nuke_name}_{iteration}.mov'
         root_name: 'primary'
-    nuke_shot_render_movie:
-        definition: '@shot_root/renders/{Shot}_{nuke_name}_v{version}.mov'
+    nuke_shot_render_quicktime:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}.mov'
+        root_name: 'primary'
+    nuke_shot_render_h264:
+        definition: '@shot_root/renders/{Shot}_{nuke_name}_v{version}.mp4'
         root_name: 'primary'
 
 
@@ -716,7 +712,7 @@ strings:
     # when a review Version in Shotgun is created inside of Nuke, this is the
     # name that is being given to it (the code field)
     nuke_shot_version_name: "{Shot}_{name}_{nuke.output}_v{version}.{iteration}"
-    nuke_quick_shot_version_name: "{Shot}_{name}_{version}_quick_{iteration}"
+    nuke_quick_shot_version_name: "{Shot}_{name}_v{version}_quick_{iteration}"
 
     nuke_asset_version_name: "{Asset}_{name}_{nuke.output}_v{version}.{iteration}"
     nuke_quick_asset_version_name: "{Asset}_{name}_quick_{iteration}"

@@ -280,9 +280,9 @@ launch_jauntplayer:
     version: v0.0.1
     type: app_store
     name: tk-multi-jauntplayer
-  rv_path_linux: '@jp_linux'
-  rv_path_mac: '@jp_mac'
-  rv_path_windows: '@jp_win'
+  rv_path_linux: '@rv_linux'
+  rv_path_mac: '@rv_mac'
+  rv_path_windows: '@rv_win'
   init_hook: '{self}/init.py'  
   
 #

@@ -114,9 +114,9 @@ rv_linux: rv
 #
 # Jaunt Player
 #
-jp_mac: /Applications/Jaunt Player.app
-jp_win: 
-jp_linux: 
+rv_mac: /Applications/Jaunt Player.app
+rv_win: 
+rv_linux: 
 
 #
 # Premiere
