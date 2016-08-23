@@ -6,6 +6,7 @@ core/interpreter_*.cfg
 core/pipeline_configuration.yml
 core/shotgun.yml
 core/roots.yml
+*.yml~
 
 # compiled python files
 *.py[co]
