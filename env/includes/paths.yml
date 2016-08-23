@@ -115,7 +115,7 @@ rv_linux: rv
 # Jaunt Player
 #
 jp_mac: /Applications/Jaunt Player.app
-jp_win: 
+jp_win: C:\Program Files\Jaunt\Jaunt Player.exe
 jp_linux: 
 
 #
