@@ -704,7 +704,7 @@ engines:
           display_name: Create ProRes quicktime movie
           icon: icons/publish_nuke_review.png
           name: quicktime
-          publish_template: nuke_shot_render_quicktime
+          publish_template: nuke_shot_render_prores
           required: false
           scene_item_type: write_node
           selected: true
@@ -787,11 +787,11 @@ engines:
         template_work: nuke_shot_work
         template_work_area: shot_work_area_nuke
         version_compare_ignore_fields: []
-      tk-nuke-writenode:
+      tk-nuke-jaunt-writenode:
         location:
-          version: v1.1.2
+          version: v0.0.1
           type: app_store
-          name: tk-nuke-writenode
+          name: tk-nuke-jaunt-writenode
         template_script_work: nuke_shot_work
         write_nodes:
         - file_type: exr
@@ -802,10 +802,12 @@ engines:
           render_template: nuke_shot_render_stereo
           settings:
             datatype: 32 bit float
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
           tank_type: Rendered Image
           promote_write_knobs: []
+          
         - file_type: exr
           name: Stereo Exr, 16 bit
           promote_write_knobs: []
@@ -815,8 +817,10 @@ engines:
           render_template: nuke_shot_render_stereo
           settings:
             datatype: 16 bit half
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
+          
         - file_type: exr
           name: Mono Exr, 32 bit
           promote_write_knobs: []
@@ -826,9 +830,10 @@ engines:
           render_template: nuke_shot_render_mono_exr
           settings:
             datatype: 32 bit float
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
-
+          
         - file_type: exr
           name: Mono Exr, 16 bit half
           promote_write_knobs: []
@@ -836,34 +841,37 @@ engines:
           proxy_render_template:
           publish_template: nuke_shot_render_pub_mono_exr
           render_template: nuke_shot_render_mono_exr
-          settings: {}
+          settings:
+            datatype: 16 bit half
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
+          
       tk-multi-pythonconsole:
         location:
           version: v0.0.1
           type: app_store
           name: tk-multi-pythonconsole
-      tk-nuke-jaunt-quickdailies:
-        current_scene_template: nuke_shot_work
-        height: 768
-        location:
-          version: v0.0.1
-          type: app_store
-          name: tk-nuke-jaunt-quickdailies
-        movie_template: shot_quicktime_quick
-        post_hooks: [snapshot_history_post_quickdaily]
-        sg_version_name_template: nuke_quick_shot_version_name
-        width: 1024
-        upload_movie: true
-        codec_settings_hook: '{self}/codec_settings.py'
+#      tk-nuke-jaunt-quickdailies:
+#        current_scene_template: nuke_shot_work
+#        height: 768
+#        location:
+#          version: v0.0.1
+#          type: app_store
+#          name: tk-nuke-jaunt-quickdailies
+#        movie_template: shot_quicktime_quick
+#        post_hooks: [snapshot_history_post_quickdaily]
+#        sg_version_name_template: nuke_quick_shot_version_name
+#        width: 1024
+#        upload_movie: true
+#        codec_settings_hook: '{self}/codec_settings.py'
       tk-multi-jaunt-reviewsubmission:
         location:
           version: v0.0.1
           type: app_store
           name: tk-multi-jaunt-reviewsubmission
         movie_height: 540
-        movie_path_template: nuke_shot_render_quicktime
+        movie_path_template: nuke_shot_render_prores
         movie_width: 1024
         new_version_status: rev
         slate_logo: icons/review_submit_logo.png
@@ -946,7 +954,7 @@ engines:
           display_name: Create ProRes quicktime movie
           icon: icons/publish_nuke_review.png
           name: quicktime
-          publish_template: nuke_shot_render_quicktime
+          publish_template: nuke_shot_render_prores
           required: false
           scene_item_type: write_node
           selected: true
@@ -1029,11 +1037,11 @@ engines:
         template_work: nuke_shot_work
         template_work_area: shot_work_area_nuke
         version_compare_ignore_fields: []
-      tk-nuke-writenode:
+      tk-nuke-jaunt-writenode:
         location:
-          version: v1.1.2
+          version: v0.0.1
           type: app_store
-          name: tk-nuke-writenode
+          name: tk-nuke-jaunt-writenode
         template_script_work: nuke_shot_work
         write_nodes:
         - file_type: exr
@@ -1044,10 +1052,12 @@ engines:
           render_template: nuke_shot_render_stereo
           settings:
             datatype: 32 bit float
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
           tank_type: Rendered Image
           promote_write_knobs: []
+          
         - file_type: exr
           name: Stereo Exr, 16 bit
           promote_write_knobs: []
@@ -1057,8 +1067,10 @@ engines:
           render_template: nuke_shot_render_stereo
           settings:
             datatype: 16 bit half
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
+          
         - file_type: exr
           name: Mono Exr, 32 bit
           promote_write_knobs: []
@@ -1068,9 +1080,10 @@ engines:
           render_template: nuke_shot_render_mono_exr
           settings:
             datatype: 32 bit float
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
-
+          
         - file_type: exr
           name: Mono Exr, 16 bit half
           promote_write_knobs: []
@@ -1078,34 +1091,37 @@ engines:
           proxy_render_template:
           publish_template: nuke_shot_render_pub_mono_exr
           render_template: nuke_shot_render_mono_exr
-          settings: {}
+          settings:
+            datatype: 16 bit half
+            compression: DWAA
           tank_type: Rendered Image
           tile_color: []
+          
       tk-multi-pythonconsole:
         location:
           version: v0.0.1
           type: app_store
           name: tk-multi-pythonconsole
-      tk-nuke-jaunt-quickdailies:
-        current_scene_template: nuke_shot_work
-        height: 768
-        location:
-          version: v0.0.1
-          type: app_store
-          name: tk-nuke-jaunt-quickdailies
-        movie_template: shot_quicktime_quick
-        post_hooks: [snapshot_history_post_quickdaily]
-        sg_version_name_template: nuke_quick_shot_version_name
-        width: 1024
-        upload_movie: true
-        codec_settings_hook: '{self}/codec_settings.py'
+#      tk-nuke-jaunt-quickdailies:
+#        current_scene_template: nuke_shot_work
+#        height: 768
+#        location:
+#          version: v0.0.1
+#          type: app_store
+#          name: tk-nuke-jaunt-quickdailies
+#        movie_template: shot_quicktime_quick
+#        post_hooks: [snapshot_history_post_quickdaily]
+#        sg_version_name_template: nuke_quick_shot_version_name
+#        width: 1024
+#        upload_movie: true
+#        codec_settings_hook: '{self}/codec_settings.py'
       tk-multi-jaunt-reviewsubmission:
         location:
           version: v0.0.1
           type: app_store
           name: tk-multi-jaunt-reviewsubmission
         movie_height: 540
-        movie_path_template: nuke_shot_render_quicktime
+        movie_path_template: nuke_shot_render_prores
         movie_width: 1024
         new_version_status: rev
         slate_logo: icons/review_submit_logo.png
@@ -1130,7 +1146,7 @@ engines:
     timeline_context_menu: []
     project_favourite_name: Shotgun Current Project
     use_sgtk_as_menu_name: false
-
+  
 
   #
   # -------------------------------------------------
