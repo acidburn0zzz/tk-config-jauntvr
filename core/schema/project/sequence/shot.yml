@@ -24,4 +24,4 @@ entity_type: "Shot"
 # any values starting with $ are resolved into path objects
 filters: [ { "path": "sg_sequence", "relation": "is", "values": [ "$sequence" ] } ]
 
-permissions : { 'mode': 0775, 'user': 'shotgun', 'group' : 'services'}
+permissions : { 'mode': 0775, 'user': 'shotgun', 'group' : 'users'}
