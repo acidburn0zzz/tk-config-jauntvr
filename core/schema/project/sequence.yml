@@ -25,4 +25,4 @@ entity_type: "Sequence"
 filters: [ { "path": "project", "relation": "is", "values": [ "$project" ] } ]
 
 
-permissions: { "mode": 0755, "user": shotgun, "group" : "services" }
+permissions: { "mode": 0775, "user": shotgun, "group" : "users" }
