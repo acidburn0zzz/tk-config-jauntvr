@@ -406,10 +406,10 @@ paths:
         definition: '@shot_root/renders/publish/{nuke_name}/v{version}/{width}x{height}/{Shot}_{nuke_name}_{eye}_v{version}.{SEQ}.exr'
         root_name: 'primary'
         
-    nuke_shot_render_stereo:
+    nuke_shot_render_stereo_exr:
         definition: '@shot_root/renders/{nuke_name}/v{version}/{width}x{height}/{Shot}_{nuke_name}_v{version}.{SEQ}.exr'
         root_name: 'primary'
-    nuke_shot_render_pub_stereo:
+    nuke_shot_render_pub_stereo_exr:
         definition: '@shot_root/renders/publish/{nuke_name}/v{version}/{width}x{height}/{Shot}_{nuke_name}_v{version}.{SEQ}.exr'
         root_name: 'primary'
 
