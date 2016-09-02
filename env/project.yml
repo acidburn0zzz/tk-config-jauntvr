@@ -92,7 +92,7 @@ engines:
       name: Finishing Tools
     hook_launch_python: default
     location:
-      version: v2.0.13
+      version: v2.0.10
       type: app_store
       name: tk-desktop
     show_recents: true
@@ -616,7 +616,7 @@ engines:
       tk-multi-importcut: '@tk-multi-importcut'
       tk-multi-importmedia: '@tk-multi-importmedia'
     location:
-      version: v0.5.0
+      version: v0.4.1
       type: app_store
       name: tk-shell
   #
@@ -636,7 +636,7 @@ engines:
     menu_favourites:
     - {app_instance: tk-multi-workfiles2, name: File Open...}
     template_project:
-#
+    
 ###############################################################################
 #
 # Framework includes.
