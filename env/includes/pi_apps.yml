@@ -96,26 +96,16 @@ tk-multi-importcut:
   display_name: Cut Import
   ensure_sg_setup_hook: '{self}/post_install.py'
   location: {name: tk-multi-importcut, type: app_store, version: v1.5.1.pi}
-  cut_link_field: sg_entity
-  default_head_in: 1001
-  default_head_in_duration: 30
-  default_tail_out_duration: 30
-  display_name: Cut Import_with_args
-  ensure_sg_setup_hook: '{self}/post_install.py'
-  location:
-    version: v1.5.1.pi
-    type: app_store
-    name: tk-multi-importcut
     # location: {type: dev, path: "/Users/mattor/Documents/dev/repos/tk-multi-importcut"}
     # location: {type: dev, path: "/jaunt/prod/library/shotgun/toolkit/dev/tk-multi-importcut"}
     # location: {type: dev, path: "/Library/Application Support/Adobe/CEP/extensions/pi-premiere-importcut/tk-multi-importcut/v1.4.0.pi"}
     # location: {type: dev, path: "/Library/Application Support/Adobe/CEP/extensions/pi-premiere-importcut/tk-multi-importcut"}
-    omit_statuses: [inac, hld, omt]
-    reinstate_status: act
-    report_to_group: Editorial
-    sg_cut_item_entity: CustomEntity09
-    use_smart_fields: false
-    timecode_frame_mapping:
+  omit_statuses: [inac, hld, omt]
+  reinstate_status: act
+  report_to_group: Editorial
+  sg_cut_item_entity: CustomEntity09
+  use_smart_fields: false
+  timecode_frame_mapping:
         timecode: "automatic"
         frame: 1001
 
