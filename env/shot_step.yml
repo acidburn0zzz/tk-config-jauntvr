@@ -798,8 +798,8 @@ engines:
           name: Stereo Exr, 32 bit
           proxy_publish_template:
           proxy_render_template:
-          publish_template: nuke_shot_render_pub_stereo
-          render_template: nuke_shot_render_stereo
+          publish_template: nuke_shot_render_pub_stereo_exr
+          render_template: nuke_shot_render_stereo_exr
           settings:
             datatype: 32 bit float
             compression: DWAA
@@ -813,8 +813,8 @@ engines:
           promote_write_knobs: []
           proxy_publish_template:
           proxy_render_template:
-          publish_template: nuke_shot_render_pub_stereo
-          render_template: nuke_shot_render_stereo
+          publish_template: nuke_shot_render_pub_stereo_exr
+          render_template: nuke_shot_render_stereo_exr
           settings:
             datatype: 16 bit half
             compression: DWAA
@@ -880,7 +880,7 @@ engines:
         version_number_padding: 3
         codec_settings_hook: '{self}/codec_settings.py'
     compatibility_dialog_min_version: 10
-    debug_logging: false
+    debug_logging: true
     favourite_directories: []
     location:
       version: v0.6.7
@@ -1048,8 +1048,8 @@ engines:
           name: Stereo Exr, 32 bit
           proxy_publish_template:
           proxy_render_template:
-          publish_template: nuke_shot_render_pub_stereo
-          render_template: nuke_shot_render_stereo
+          publish_template: nuke_shot_render_pub_stereo_exr
+          render_template: nuke_shot_render_stereo_exr
           settings:
             datatype: 32 bit float
             compression: DWAA
@@ -1063,8 +1063,8 @@ engines:
           promote_write_knobs: []
           proxy_publish_template:
           proxy_render_template:
-          publish_template: nuke_shot_render_pub_stereo
-          render_template: nuke_shot_render_stereo
+          publish_template: nuke_shot_render_pub_stereo_exr
+          render_template: nuke_shot_render_stereo_exr
           settings:
             datatype: 16 bit half
             compression: DWAA
