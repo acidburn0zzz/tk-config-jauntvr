@@ -13,3 +13,5 @@ type: "project"
 
 # name of project root as defined in roots.yml
 root_name: "primary"
+
+permissions: { "mode": 0755, "user": shotgun, "group" : "users"}
