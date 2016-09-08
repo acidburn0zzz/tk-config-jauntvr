@@ -115,6 +115,190 @@ workfiles2-launch-at-startup:
   template_work:
   template_work_area:
   version_compare_ignore_fields: []
+
+tk-multi-screeningroom-defaults: 
+    location: &tk-multi-screeningroom-location
+      version: v0.3.0
+      type: app_store
+      name: tk-multi-screeningroom
+    enable_web_mode: true
+    init_hook: '{self}/init.py'
+    enable_rv_mode: true
+    rv_path_windows: C:\Program Files\RV\RV64.exe
+    rv_path_mac: /Applications/RV64.app
+    rv_path_linux: rv
+  
+tk-multi-jaunt-publish-defaults: 
+    allow_taskless_publishes: true
+    display_name: Publish
+    expand_single_items: false
+    hook_copy_file: default
+    hook_post_publish: default
+    hook_primary_pre_publish: default
+    hook_primary_publish: default
+    hook_scan_scene: default
+    hook_secondary_pre_publish: default
+    hook_secondary_publish: default
+    hook_thumbnail: default
+    location:
+      version: v0.0.1
+      type: app_store
+      name: tk-multi-jaunt-publish
+    primary_description: Publishes and versions up the current Nuke script.
+    primary_display_name: Nuke Publish
+    primary_icon: icons/publish_nuke_main.png
+    primary_publish_template: nuke_shot_publish
+    primary_scene_item_type: work_file
+    primary_tank_type: Nuke Script
+    secondary_outputs: &tk-multi-jaunt-publish-secondary-outputs
+    - description: Copy renders from work area to publish area.
+      display_group: Shotgun Write Nodes
+      display_name: Publish Renders
+      icon: icons/publish_nuke_writenode.png
+      name: render
+      publish_template:
+      required: false
+      scene_item_type: write_node
+      selected: true
+      tank_type: Rendered Image
+    - description: Create a ProRes quicktime movie and submit to Screening Room
+      display_group: Shotgun Write Nodes
+      display_name: Create ProRes quicktime movie
+      icon: icons/publish_nuke_review.png
+      name: quicktime
+      publish_template: nuke_shot_render_prores
+      required: false
+      scene_item_type: write_node
+      selected: true
+      tank_type: Quicktime
+    template_work: nuke_shot_work  
+
+tk-multi-setframerange-defaults:
+    location: 
+      name: tk-multi-setframerange
+      type: app_store
+      version: v0.3.0
+    sg_in_frame_field: sg_head_in
+    sg_out_frame_field: sg_tail_out
+    
+tk-multi-shotgunpanel-defaults: 
+    action_mappings: 
+      PublishedFile: 
+      - actions: [read_node]
+        filters: {published_file_type: Rendered Image}
+      - actions: [script_import]
+        filters: {published_file_type: Nuke Script}
+      Task: &tk-multi-shotgunpanel-action-mappings-task
+      - actions: [assign_task, task_to_ip]
+        filters: {}
+    actions_hook: '{self}/general_actions.py:{self}/tk-nuke_actions.py'
+    location: &tk-multi-shotgunpanel-action-location
+      version: v1.2.6
+      type: app_store
+      name: tk-multi-shotgunpanel
+    shotgun_fields_hook: '{self}/shotgun_fields.py'
+    
+tk-multi-snapshot-defaults:
+    hook_copy_file: default
+    hook_scene_operation: default
+    hook_thumbnail: default
+    location:
+      version: v0.6.1
+      type: app_store
+      name: tk-multi-snapshot
+    template_snapshot: nuke_shot_snapshot
+    template_work: nuke_shot_work
+    
+tk-multi-workfiles2-defaults:
+    allow_task_creation: true
+    create_new_task_hook: default
+    custom_actions_hook: default
+    entities: &tk-multi-workfiles2-entities
+    - caption: Assets
+      entity_type: Task
+      filters:
+      - [entity, type_is, Asset]
+      hierarchy: [entity.Asset.sg_asset_type, entity, step, content]
+    - caption: Shots
+      entity_type: Task
+      filters:
+      - [entity, type_is, Shot]
+      hierarchy: [entity.Shot.sg_sequence, entity, step, content]
+    file_extensions: []
+    hook_copy_file: default
+    hook_filter_publishes: default
+    hook_filter_work_files: default
+    hook_scene_operation: default
+    launch_at_startup: false
+    location: &tk-multi-workfiles2-location
+      version: v0.7.37
+      type: app_store
+      name: tk-multi-workfiles2
+    my_tasks_extra_display_fields: []
+    saveas_default_name: scene
+    saveas_prefer_version_up: false
+    show_my_tasks: true
+    template_publish: nuke_shot_publish
+    template_publish_area: shot_publish_area_nuke
+    template_work: nuke_shot_work
+    template_work_area: shot_work_area_nuke
+    version_compare_ignore_fields: []
+
+tk-nuke-jaunt-writenode-defaults:
+    location:
+      version: v0.0.1
+      type: app_store
+      name: tk-nuke-jaunt-writenode
+    template_script_work: nuke_shot_work
+    write_nodes: &tk-nuke-jaunt-writenode-write-nodes
+    - file_type: exr
+      name: Stereo Exr, 32 bit
+      proxy_publish_template:
+      proxy_render_template:
+      publish_template: nuke_shot_render_pub_stereo_exr
+      render_template: nuke_shot_render_stereo_exr
+      settings: &tk-nuke-jaunt-writenode-write-nodes-32-exr-settings
+        datatype: 32 bit float
+        compression: DWAA
+      tank_type: Rendered Image
+      tile_color: []
+      tank_type: Rendered Image
+      promote_write_knobs: []
+      
+    - file_type: exr
+      name: Stereo Exr, 16 bit
+      promote_write_knobs: []
+      proxy_publish_template:
+      proxy_render_template:
+      publish_template: nuke_shot_render_pub_stereo_exr
+      render_template: nuke_shot_render_stereo_exr
+      settings: &tk-nuke-jaunt-writenode-write-nodes-16-exr-settings
+        datatype: 16 bit half
+        compression: DWAA
+      tank_type: Rendered Image
+      tile_color: []
+
+tk-multi-pythonconsole-defaults:
+    location: 
+      version: v0.0.1
+      type: app_store
+      name: tk-multi-pythonconsole
+          
+tk-multi-jaunt-reviewsubmission-defaults: 
+    location: 
+      version: v0.0.1
+      type: app_store
+      name: tk-multi-jaunt-reviewsubmission
+    movie_height: 540
+    movie_path_template: nuke_shot_render_prores
+    movie_width: 1024
+    new_version_status: rev
+    slate_logo: icons/review_submit_logo.png
+    store_on_disk: true
+    upload_to_shotgun: true
+    version_number_padding: 3
+    codec_settings_hook: '{self}/codec_settings.py'
+    
 ###############################################################################
 #
 # Framework includes.
