@@ -49,6 +49,7 @@ class BeforePremiereLaunch(tank.Hook):
         extensions = multi_launchapp.get_setting("extensions")
         # Install extensions in user directory to avoid permission issues
         extensions_path = os.path.expanduser("~/Library/Application Support/Adobe/CEP/extensions")
+        extension_version = multi_launchapp.get_setting("extension_version")
         if not os.path.exists(extensions_path):
             os.makedirs(extensions_path)
         # Loop over all extensions, and create symlinks when needed
@@ -67,8 +68,9 @@ class BeforePremiereLaunch(tank.Hook):
                             os.unlink(install_path)
                         else:
                             shutil.rmtree(install_path)
-                    multi_launchapp.log_info("Attempting to copy %s to %s..." % (extensions[extension], install_path))
-                    os.system('cp -r "%s" "%s"' % (extensions[extension], install_path))
+                    source_path = os.path.join(extensions[extension], extension_version)
+                    multi_launchapp.log_info("Attempting to copy %s to %s..." % (source_path, install_path))
+                    os.system('cp -r "%s" "%s"' % (source_path, install_path))
                     # copy_tree(extensions[extension], install_path)
                     # Update the panel shotgun projects and render profiles lists
                     multi_launchapp.log_info("Attempting to refresh panel index %s..." % install_path)
