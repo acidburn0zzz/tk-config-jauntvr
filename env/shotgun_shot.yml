@@ -92,11 +92,7 @@ engines:
 frameworks:
   tk-framework-shotgunutils_v4.x.x:
     location:
-<<<<<<< Updated upstream
       version: v4.4.1
-=======
-      version: v4.4.0
->>>>>>> Stashed changes
       type: app_store
       name: tk-framework-shotgunutils
   tk-framework-studio_v1.x.x:
