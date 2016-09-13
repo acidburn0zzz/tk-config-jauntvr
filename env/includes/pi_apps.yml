@@ -106,7 +106,7 @@ tk-multi-importmedia:
   local_transcoding:
   - formats: [mp4, webm, filmstrip, thumbnail, movie_image]
     transcoder: ffmpeg
-  location: {name: tk-multi-importmedia, type: app_store, version: v0.2.1}
+  location: {name: tk-multi-importmedia, type: app_store, version: v0.3.0}
   mandatory_fields: []
   movie_review_formats: [movie, editorial, image]
   path_template: version_file_name

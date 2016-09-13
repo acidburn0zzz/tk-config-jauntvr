@@ -141,9 +141,8 @@ tk-multi-jaunt-publish-defaults:
     hook_secondary_publish: default
     hook_thumbnail: default
     location:
-      version: v0.0.1
-      type: app_store
-      name: tk-multi-jaunt-publish
+      type: dev
+      path: /jaunt/apps/shotgun/data/cores/default/install/apps/jaunt/tk-multi-jaunt-publish/v0.0.1
     primary_description: Publishes and versions up the current Nuke script.
     primary_display_name: Nuke Publish
     primary_icon: icons/publish_nuke_main.png
@@ -246,9 +245,8 @@ tk-multi-workfiles2-defaults:
 
 tk-nuke-jaunt-writenode-defaults:
     location:
-      version: v0.0.1
-      type: app_store
-      name: tk-nuke-jaunt-writenode
+      type: dev
+      path: /jaunt/apps/shotgun/data/cores/default/install/apps/jaunt/tk-nuke-jaunt-writenode/v0.0.1
     template_script_work: nuke_shot_work
     write_nodes: &tk-nuke-jaunt-writenode-write-nodes
     - file_type: exr
@@ -286,9 +284,8 @@ tk-multi-pythonconsole-defaults:
           
 tk-multi-jaunt-reviewsubmission-defaults: 
     location: 
-      version: v0.0.1
-      type: app_store
-      name: tk-multi-jaunt-reviewsubmission
+      type: dev
+      path: /jaunt/apps/shotgun/data/cores/default/install/apps/jaunt/tk-multi-jaunt-reviewsubmission/v0.0.1
     movie_height: 540
     movie_path_template: nuke_shot_render_prores
     movie_width: 1024
