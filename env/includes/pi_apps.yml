@@ -1,4 +1,4 @@
-# Copyright (c) 2015 Shotgun Software Inc.
+# Copyright (c) 2016 Shotgun Software Inc.
 #
 # CONFIDENTIAL AND PROPRIETARY
 #
@@ -25,8 +25,9 @@ includes:
 # Note: we store the app version here so it can be passed along to the Premiere
 # multi-app launcher, which needs the version to find the extension on disk.
 tk-premiere-jauntvr:
+    master_version: &tk-premiere-jauntvr_version v0.0.5
     location:
-      version: &tk-premiere-jauntvr_version v0.0.4
+      version: *tk-premiere-jauntvr_version
       type: app_store
       name: tk-premiere-jauntvr
 
