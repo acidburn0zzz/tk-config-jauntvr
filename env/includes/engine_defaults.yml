@@ -11,7 +11,7 @@ tk-nuke-defaults:
     apps: 
       tk-multi-about: '@about'
       tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-      tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults' 
+      # tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults' 
       tk-multi-setframerange: '@tk-multi-setframerange-defaults'
       tk-multi-shotgunpanel: '@tk-multi-shotgunpanel-defaults'
       tk-multi-snapshot: '@tk-multi-snapshot-defaults'
