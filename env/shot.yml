@@ -127,7 +127,7 @@ engines:
     apps:
       tk-multi-about: '@about'
       tk-multi-workfiles2: '@workfiles2'
-      tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults'
+      #tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults'
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []

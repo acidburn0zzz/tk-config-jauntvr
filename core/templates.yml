@@ -33,8 +33,8 @@ keys:
         type: str
     Step:
         type: str
-    sg_asset_type:
-        type: str
+    #sg_asset_type:
+    #    type: str
     Asset:
         type: str
     name:
@@ -137,7 +137,7 @@ keys:
     # Aftermarket keys
     version_number:
         type: int
-        format_spec: "04"
+        format_spec: "03"
     now:
         type: timestamp
         format_spec: "%m/%d/%Y at %I:%M%p"
@@ -153,6 +153,92 @@ keys:
     stereo_eye:
         type: str
         choices: ['l', 'left', 'r', 'right', 's', 'stereo', '%v']
+
+    # These are used by the CreateDelivery and IngestDelivery apps
+    generic_string:
+        type: str
+    cinesync_token:
+        type: str
+        filter_by: "cinesync"
+    YYYYMMDD:
+        type: int
+        format_spec: "08"
+    YYYY_MM_DD:
+        type: timestamp
+        format_spec: "%Y-%m-%d"
+        default: now
+    permissive_name:
+        type: str
+        filter_by: "^[0-9a-zA-Z_-]*$"
+        alias: name
+    Delivery:
+        type: str
+    delivery_version:
+        type: int
+        format_spec: "04"
+    delivery_version_by_day:
+        type: int
+        format_spec: "02"
+    delivery_version_by_vendor:
+        type: int
+        format_spec: "04"
+    title:
+        type: str
+    dir:
+        # This is here so I can build a relative path with a template without having it include the
+        # install directory too.  Would be awesome if we could have a @no_root tag or something!
+        type: str
+    code:
+        type: str
+    file_type:
+        type: str
+        filter_by: alphanumeric
+    username:
+        type: str
+        shotgun_entity_type: HumanUser
+        shotgun_field_name: sg_vendor_code
+    sg_vendor_code:
+        type: str
+        shotgun_entity_type: HumanUser
+        shotgun_field_name: sg_vendor_group.Group.sg_vendor_code
+    sg_shot_name:
+        type: str
+        shotgun_entity_type: Shot
+        shotgun_field_name: code
+    sg_sequence_name:
+        type: str
+        shotgun_entity_type: Sequence
+        shotgun_field_name: sg_sequence_code
+    sg_asset_name:
+        type: str
+        shotgun_entity_type: Asset
+        shotgun_field_name: code
+    sg_asset_type:
+        type: str
+        shotgun_entity_type: Asset
+        shotgun_field_name: sg_asset_type
+    sg_version_name:
+        type: str
+        shotgun_entity_type: Version
+        shotgun_field_name: code
+        alias: version_name
+        filter_by: "^[0-9a-zA-Z_-]*$"
+    sg_version_type:
+        type: str
+        shotgun_entity_type: Version
+        shotgun_field_name: sg_version_type
+        alias: version_type
+    sg_delivery_name:
+        type: str
+        shotgun_entity_type: Delivery
+        shotgun_field_name: title
+    sg_delivery_vendor_name:
+        type: str
+        shotgun_entity_type: Delivery
+        shotgun_field_name: created_by.HumanUser.sg_vendor_group.Group.sg_vendor_code
+        alias: vendor
+    publish_name:
+        type: str
 
 #
 # The paths section contains all the the key locations where files are to be stored
@@ -739,5 +825,48 @@ strings:
     version_file_name: "{version_name}[_{stereo_eye}][.{frame_number}].{ext}"
     playlist_name_template: "Media Imported on {now}"
 
-    shot_version_name: "{Shot}_v{version_number}"
-    asset_version_name: "{Asset}_v{version_number}"
+    # These are used by the CreateDelivery and IngestDelivery apps
+    delivery_name: "{username}_{delivery_version_by_vendor}"
+    delivery_relative_path: "From{dir}{YYYY}_{MM}_{DD}{dir}{title}"
+
+    shot_version_name: "{Shot}_v{version_number}[_{cinesync_token}][_{stereo_eye}]"
+    shot_version_name_generic: "{Shot}[_{generic_string}][_{cinesync_token}][_{stereo_eye}]"
+
+    asset_version_name: "{Asset}_v{version_number}[_{stereo_eye}]"
+    version_name_generic: "{generic_string}[_{stereo_eye}]"
+
+    basic_frames_template: "{code}.{frame_number}.{file_type}"
+    basic_movie_template: "{code}.{file_type}"
+
+    delivery_download_folder: "/Volumes/VFX/External/{sg_delivery_vendor_name}/From/{sg_delivery_name}"
+    aspera_root_template: "/Volumes/ASPERA/{sg_delivery_vendor_name}"
+    sftp_root_template: "/Volumes/SFTP/{sg_delivery_vendor_name}"
+
+    # In this example, /{sg_delivery_vendor_name} would be evaluated and inserted
+    # after the "fasp://{address}" in the upload URL on the delivery. So if {sg_delivery_vendor_name}
+    # was "PUMPERNICKEL" and the upload URL was "fasp://123.123.123.123/FROM_PUMPERS/…"
+    # the new URL would be "fasp://123.123.123.123/PUMPERNICKEL/FROM_PUMPERS/…"
+    #
+    remote_aspera_root: "/{sg_delivery_vendor_name}"
+    remote_sftp_root: "/SFTP/{sg_delivery_vendor_name}"
+
+    delivery_root: "/Volumes/VFX/Internal"
+
+    # Base folder for files copied by Ingest Delivery app
+    delivery_ingest_root: "@delivery_root/SUBMISSIONS/{YYYYMMDD}/{sg_delivery_name}"
+
+    # Location where single files should be ingested
+    delivery_ingest_single: "@delivery_ingest_root/{publish_name}.{ext}"
+
+    # Location where image sequences should be ingested
+    delivery_ingest_imgseq: "@delivery_ingest_root/{publish_name}/{width}x{height}/{publish_name}.{frame_number}.{ext}"
+
+    delivery_shot_root: '@delivery_root/_Shots/{sg_sequence_name}/{sg_shot_name}'
+    delivery_asset_root: '@delivery_root/_Assets/{sg_asset_type}/{sg_asset_name}/{sg_version_type}'
+    delivery_sequence_root: '@delivery_root/_Sequences/{sg_sequence_name}'
+    delivery_shot_ingest_seq: '@delivery_shot_root/{sg_version_name}/{version_number}/{sg_version_name}.{frame_number}.{ext}'
+    delivery_shot_ingest_single: '@delivery_shot_root/{sg_version_name}.{ext}'
+    delivery_asset_ingest_seq: '@delivery_asset_root/{sg_version_name}/{sg_version_name}.{frame_number}.{ext}'
+    delivery_asset_ingest_single: '@delivery_asset_root/{sg_version_name}.{ext}'
+    delivery_sequence_ingest_seq: '@delivery_sequence_root/{sg_version_name}/{sg_version_name}.{frame_number}.{ext}'
+    delivery_sequence_ingest_single: '@delivery_sequence_root/{sg_version_name}.{ext}'

@@ -128,50 +128,50 @@ tk-multi-screeningroom-defaults:
     rv_path_mac: /Applications/RV64.app
     rv_path_linux: rv
   
-tk-multi-jaunt-publish-defaults: 
-    allow_taskless_publishes: true
-    display_name: Publish
-    expand_single_items: false
-    hook_copy_file: default
-    hook_post_publish: default
-    hook_primary_pre_publish: default
-    hook_primary_publish: default
-    hook_scan_scene: default
-    hook_secondary_pre_publish: default
-    hook_secondary_publish: default
-    hook_thumbnail: default
-    location:
-      version: v0.0.1
-      type: app_store
-      name: tk-multi-jaunt-publish
-    primary_description: Publishes and versions up the current Nuke script.
-    primary_display_name: Nuke Publish
-    primary_icon: icons/publish_nuke_main.png
-    primary_publish_template: nuke_shot_publish
-    primary_scene_item_type: work_file
-    primary_tank_type: Nuke Script
-    secondary_outputs: &tk-multi-jaunt-publish-secondary-outputs
-    - description: Copy renders from work area to publish area.
-      display_group: Shotgun Write Nodes
-      display_name: Publish Renders
-      icon: icons/publish_nuke_writenode.png
-      name: render
-      publish_template:
-      required: false
-      scene_item_type: write_node
-      selected: true
-      tank_type: Rendered Image
-    - description: Create a ProRes quicktime movie and submit to Screening Room
-      display_group: Shotgun Write Nodes
-      display_name: Create ProRes quicktime movie
-      icon: icons/publish_nuke_review.png
-      name: quicktime
-      publish_template: nuke_shot_render_prores
-      required: false
-      scene_item_type: write_node
-      selected: true
-      tank_type: Quicktime
-    template_work: nuke_shot_work  
+#tk-multi-jaunt-publish-defaults: 
+#    allow_taskless_publishes: true
+#    display_name: Publish
+#    expand_single_items: false
+#    hook_copy_file: default
+#    hook_post_publish: default
+#    hook_primary_pre_publish: default
+#    hook_primary_publish: default
+#    hook_scan_scene: default
+#    hook_secondary_pre_publish: default
+#    hook_secondary_publish: default
+#    hook_thumbnail: default
+#    location:
+#      version: v0.0.1
+#      type: app_store
+#      name: tk-multi-jaunt-publish
+#    primary_description: Publishes and versions up the current Nuke script.
+#    primary_display_name: Nuke Publish
+#    primary_icon: icons/publish_nuke_main.png
+#    primary_publish_template: nuke_shot_publish
+#    primary_scene_item_type: work_file
+#    primary_tank_type: Nuke Script
+#    secondary_outputs: &tk-multi-jaunt-publish-secondary-outputs
+#    - description: Copy renders from work area to publish area.
+#      display_group: Shotgun Write Nodes
+#      display_name: Publish Renders
+#      icon: icons/publish_nuke_writenode.png
+#      name: render
+#      publish_template:
+#      required: false
+#      scene_item_type: write_node
+#      selected: true
+#      tank_type: Rendered Image
+#    - description: Create a ProRes quicktime movie and submit to Screening Room
+#      display_group: Shotgun Write Nodes
+#      display_name: Create ProRes quicktime movie
+#      icon: icons/publish_nuke_review.png
+#      name: quicktime
+#      publish_template: nuke_shot_render_prores
+#      required: false
+#      scene_item_type: write_node
+#      selected: true
+#      tank_type: Quicktime
+#    template_work: nuke_shot_work  
 
 tk-multi-setframerange-defaults:
     location: 
@@ -244,39 +244,39 @@ tk-multi-workfiles2-defaults:
     template_work_area: shot_work_area_nuke
     version_compare_ignore_fields: []
 
-tk-nuke-jaunt-writenode-defaults:
-    location:
-      version: v0.0.1
-      type: app_store
-      name: tk-nuke-jaunt-writenode
-    template_script_work: nuke_shot_work
-    write_nodes: &tk-nuke-jaunt-writenode-write-nodes
-    - file_type: exr
-      name: Stereo Exr, 32 bit
-      proxy_publish_template:
-      proxy_render_template:
-      publish_template: nuke_shot_render_pub_stereo_exr
-      render_template: nuke_shot_render_stereo_exr
-      settings: &tk-nuke-jaunt-writenode-write-nodes-32-exr-settings
-        datatype: 32 bit float
-        compression: DWAA
-      tank_type: Rendered Image
-      tile_color: []
-      tank_type: Rendered Image
-      promote_write_knobs: []
-      
-    - file_type: exr
-      name: Stereo Exr, 16 bit
-      promote_write_knobs: []
-      proxy_publish_template:
-      proxy_render_template:
-      publish_template: nuke_shot_render_pub_stereo_exr
-      render_template: nuke_shot_render_stereo_exr
-      settings: &tk-nuke-jaunt-writenode-write-nodes-16-exr-settings
-        datatype: 16 bit half
-        compression: DWAA
-      tank_type: Rendered Image
-      tile_color: []
+#tk-nuke-jaunt-writenode-defaults:
+#    location:
+#      version: v0.0.1
+#      type: app_store
+#      name: tk-nuke-jaunt-writenode
+#    template_script_work: nuke_shot_work
+#    write_nodes: &tk-nuke-jaunt-writenode-write-nodes
+#    - file_type: exr
+#      name: Stereo Exr, 32 bit
+#      proxy_publish_template:
+#      proxy_render_template:
+#      publish_template: nuke_shot_render_pub_stereo_exr
+#      render_template: nuke_shot_render_stereo_exr
+#      settings: &tk-nuke-jaunt-writenode-write-nodes-32-exr-settings
+#        datatype: 32 bit float
+#        compression: DWAA
+#      tank_type: Rendered Image
+#      tile_color: []
+#      tank_type: Rendered Image
+#      promote_write_knobs: []
+#      
+#    - file_type: exr
+#      name: Stereo Exr, 16 bit
+#      promote_write_knobs: []
+#      proxy_publish_template:
+#      proxy_render_template:
+#      publish_template: nuke_shot_render_pub_stereo_exr
+#      render_template: nuke_shot_render_stereo_exr
+#      settings: &tk-nuke-jaunt-writenode-write-nodes-16-exr-settings
+#        datatype: 16 bit half
+#        compression: DWAA
+#      tank_type: Rendered Image
+#      tile_color: []
 
 tk-multi-pythonconsole-defaults:
     location: 
@@ -284,20 +284,20 @@ tk-multi-pythonconsole-defaults:
       type: app_store
       name: tk-multi-pythonconsole
           
-tk-multi-jaunt-reviewsubmission-defaults: 
-    location: 
-      version: v0.0.1
-      type: app_store
-      name: tk-multi-jaunt-reviewsubmission
-    movie_height: 540
-    movie_path_template: nuke_shot_render_prores
-    movie_width: 1024
-    new_version_status: rev
-    slate_logo: icons/review_submit_logo.png
-    store_on_disk: true
-    upload_to_shotgun: true
-    version_number_padding: 3
-    codec_settings_hook: '{self}/codec_settings.py'
+#tk-multi-jaunt-reviewsubmission-defaults: 
+#    location: 
+#      version: v0.0.1
+#      type: app_store
+#      name: tk-multi-jaunt-reviewsubmission
+#    movie_height: 540
+#    movie_path_template: nuke_shot_render_prores
+#    movie_width: 1024
+#    new_version_status: rev
+#    slate_logo: icons/review_submit_logo.png
+#    store_on_disk: true
+#    upload_to_shotgun: true
+#    version_number_padding: 3
+#    codec_settings_hook: '{self}/codec_settings.py'
     
 ###############################################################################
 #

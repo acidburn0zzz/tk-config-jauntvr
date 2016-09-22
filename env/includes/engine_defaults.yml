@@ -11,14 +11,14 @@ tk-nuke-defaults:
     apps: 
       tk-multi-about: '@about'
       tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-      tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults' 
+      #tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults' 
       tk-multi-setframerange: '@tk-multi-setframerange-defaults'
       tk-multi-shotgunpanel: '@tk-multi-shotgunpanel-defaults'
       tk-multi-snapshot: '@tk-multi-snapshot-defaults'
       tk-multi-workfiles2: '@tk-multi-workfiles2-defaults'
-      tk-nuke-jaunt-writenode: '@tk-nuke-jaunt-writenode-defaults'
+      #tk-nuke-jaunt-writenode: '@tk-nuke-jaunt-writenode-defaults'
       tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      tk-multi-jaunt-reviewsubmission: '@tk-multi-jaunt-reviewsubmission-defaults' 
+      #tk-multi-jaunt-reviewsubmission: '@tk-multi-jaunt-reviewsubmission-defaults' 
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []

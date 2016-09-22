@@ -78,9 +78,11 @@ engines:
       # tk-multi-launchphotoshop: '@launch_photoshop'
       # tk-multi-launchsoftimage: '@launch_softimage'
       # tk-multi-screeningroom: '@launch_screeningroom'
-      tk-multi-launchpremiere: '@launch_premiere'
+      #tk-multi-launchpremiere: '@launch_premiere'
       tk-multi-importcut: '@tk-multi-importcut'
       tk-multi-importmedia: '@tk-multi-importmedia'
+      tk-multi-createdelivery: '@tk-multi-createdelivery'
+      tk-multi-ingestdelivery: '@tk-multi-ingestdelivery'
     collapse_rules:
     - {button_label: $app, match: Launch $app, menu_label: None}
     debug_logging: false
@@ -238,7 +240,7 @@ engines:
   tk-nukex:
     apps:
       tk-multi-about: '@about'
-      tk-multi-screeningroom: '@launch_screeningroom'
+      tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
       tk-multi-workfiles2: '@workfiles2'
       tk-multi-breakdown:
         location:
@@ -246,9 +248,8 @@ engines:
           type: app_store
           name: tk-multi-breakdown
         hook_scene_operations: '{self}/tk-nuke_scene_operations.py'
-      tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults'
+      #tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults'
       tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []
@@ -451,10 +452,13 @@ engines:
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'
-      tk-multi-launchpremiere: '@launch_premiere'
+      #tk-multi-launchpremiere: '@launch_premiere'
       tk-multi-importcut: '@tk-multi-importcut'
-      tk-premiere-jauntvr: '@tk-premiere-jauntvr'
+      #tk-premiere-jauntvr: '@tk-premiere-jauntvr'
       tk-multi-importmedia: '@tk-multi-importmedia'
+      tk-multi-createdelivery: '@tk-multi-createdelivery'
+      tk-multi-ingestdelivery: '@tk-multi-ingestdelivery'
+    debug_logging: false
     location:
       version: v0.4.1
       type: app_store
@@ -476,7 +480,6 @@ engines:
     menu_favourites:
     - {app_instance: tk-multi-workfiles2, name: File Open...}
     template_project:
-    
 ###############################################################################
 #
 # Framework includes.

@@ -24,11 +24,11 @@ includes:
 
 # Note: we store the app version here so it can be passed along to the Premiere
 # multi-app launcher, which needs the version to find the extension on disk.
-tk-premiere-jauntvr:
-    location:
-      version: &tk-premiere-jauntvr_version v0.0.4
-      type: app_store
-      name: tk-premiere-jauntvr
+#tk-premiere-jauntvr:
+#    location:
+#      version: &tk-premiere-jauntvr_version v0.0.4
+#      type: app_store
+#      name: tk-premiere-jauntvr
 
 launch_nuke:
   defer_keyword: ''
@@ -69,28 +69,28 @@ launch_nukex:
   windows_args: ''
   windows_path: '@nukex_windows'
   
-launch_premiere:
-  defer_keyword: ''
-  engine: ''
-  extra: '@premiere_extras'
-  hook_app_launch: default
-  hook_before_app_launch: before_premiere_launch
-  icon: '{config_path}/icons/premiere_logo.png'
-  linux_args: ''
-  linux_path: ''
-  location:
-    version: v0.7.6
-    type: app_store
-    name: tk-multi-launchapp
-  mac_args: ''
-  mac_path: '@premiere_mac'
-  menu_name: Launch Premiere
-  versions: []
-  windows_args: ''
-  windows_path: '@premiere_win'
-  extension_version: *tk-premiere-jauntvr_version
-  extensions:
-    pi-premiere-importcut: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr
+#launch_premiere:
+#  defer_keyword: ''
+#  engine: ''
+#  extra: '@premiere_extras'
+#  hook_app_launch: default
+#  hook_before_app_launch: before_premiere_launch
+#  icon: '{config_path}/icons/premiere_logo.png'
+#  linux_args: ''
+#  linux_path: ''
+#  location:
+#    version: v0.7.6
+#    type: app_store
+#    name: tk-multi-launchapp
+#  mac_args: ''
+#  mac_path: '@premiere_mac'
+#  menu_name: Launch Premiere
+#  versions: []
+#  windows_args: ''
+#  windows_path: '@premiere_win'
+#  extension_version: *tk-premiere-jauntvr_version
+#  extensions:
+#    pi-premiere-importcut: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr
 
 tk-multi-importcut:
     display_name: Import Cut
@@ -105,7 +105,7 @@ tk-multi-importmedia:
   local_transcoding:
   - formats: [mp4, webm, filmstrip, thumbnail, movie_image]
     transcoder: ffmpeg
-  location: {name: tk-multi-importmedia, type: app_store, version: v0.2.1}
+  location: {name: tk-multi-importmedia, type: app_store, version: v0.3.0}
   mandatory_fields: []
   movie_review_formats: [movie, editorial, image]
   path_template: version_file_name
@@ -115,6 +115,28 @@ tk-multi-importmedia:
     field_name: entity
   version_field_columns: [entity, sg_version_type, description]
   version_name_templates: [shot_version_name, asset_version_name]
+
+tk-multi-createdelivery:
+  location:
+    version: v2.8.1
+    type: app_store
+    name: tk-multi-createdelivery
+  version_name_templates: [shot_version_name, asset_version_name]
+  delivery_type: Vendor Submission
+  delivery_to: ''
+  aspera_server: Aspera Server 
+  aspera_port: 3001
+  ftp_server: SFTP Server
+  ftp_port: 2001
+
+tk-multi-ingestdelivery:
+  location:
+    version: v2.10.7
+    type: app_store
+    name: tk-multi-ingestdelivery
+  sftp_root:
+  aspera_root: 
+  max_queued_count: 3
 
 ###############################################################################
 #
@@ -194,31 +216,5 @@ frameworks:
       tank_type: '{EXTENSION}'
       type: other
     location: {name: tk-framework-delivery, type: app_store, version: v2.2.2}
-    
-tk-framework-delivery_v3.x.x:
-    delivery_formats:
-    - display_name: Images
-      exclusive: true
-      extensions: [exr, dpx, tif, tiff, jpg, jpeg, png, tga, pdf]
-      name: image
-      tank_type: '{EXTENSION}'
-      type: image
-    - display_name: Mov
-      exclusive: true
-      extensions: [mov, mp4, mpeg, avi]
-      name: movie
-      tank_type: '{EXTENSION}'
-      type: movie
-    - display_name: Ed
-      exclusive: false
-      extensions: [edit]
-      name: editorial
-      tank_type: DNXHD
-      type: movie
-    - display_name: ???
-      exclusive: false
-      extensions: []
-      name: other
-      tank_type: '{EXTENSION}'
-      type: other
+  tk-framework-delivery_v3.x.x:
     location: {name: tk-framework-delivery, type: app_store, version: v3.1.1}
