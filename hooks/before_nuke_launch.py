@@ -74,9 +74,12 @@ class BeforeNukeLaunch(tank.Hook):
         env = pickle.loads(penv.read())
         os.environ = env
               
-        tank.util.prepend_path_to_env_var("NUKE_PATH", os.environ["NUKE_PATH"])
-        tank.util.prepend_path_to_env_var("PATH", os.environ["PATH"])
-        tank.util.prepend_path_to_env_var("PYTHONPATH", os.environ["PYTHONPATH"])
+        # tank.util.prepend_path_to_env_var("NUKE_PATH", os.environ["NUKE_PATH"])
+        # tank.util.prepend_path_to_env_var("PATH", os.environ["PATH"])
+        # tank.util.prepend_path_to_env_var("PYTHONPATH", os.environ["PYTHONPATH"])
+        # tank.util.prepend_path_to_env_var("CONDUCTOR_CONFIG", os.environ["CONDUCTOR_CONFIG"])
+        # tank.util.prepend_path_to_env_var("CONDUCTOR_TOKEN_PATH", os.environ["CONDUCTOR_TOKEN_PATH"])
         
-        
+        for key, var in os.environ.iteritems():
+            tank.util.prepend_path_to_env_var(key, os.environ[key])
         
