@@ -69,6 +69,10 @@ class BeforePremiereLaunch(tank.Hook):
                         else:
                             shutil.rmtree(install_path)
                     source_path = os.path.join(extensions[extension], extension_version)
+                    if not os.path.exists(source_path):
+                        multi_launchapp.log_info("Source path %s does NOT exist!" % source_path)
+                        multi_launchapp.log_info("Unable to copy and launch Premiere with extension")
+                        return
                     multi_launchapp.log_info("Attempting to copy %s to %s..." % (source_path, install_path))
                     os.system('cp -r "%s" "%s"' % (source_path, install_path))
                     # copy_tree(extensions[extension], install_path)
