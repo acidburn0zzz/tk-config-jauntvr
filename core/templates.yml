@@ -418,18 +418,25 @@ paths:
         definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_{iteration}.mov'
         root_name: 'primary'
                
-    nuke_shot_render_prores:
-        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}.mov'
+    nuke_shot_render_apch:
+        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_apch.mov'
         root_name: 'primary'
-    nuke_shot_render_pub_prores:
-        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}.mov'
+    nuke_shot_render_pub_apch:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_apch.mov'
         root_name: 'primary'
                 
-    nuke_shot_render_h264:
-        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}.mp4'
+    nuke_shot_render_ap4h:
+        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_ap4h.mov'
         root_name: 'primary'
-    nuke_shot_render_pub_h264:
-        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}.mp4'
+    nuke_shot_render_pub_ap4h:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_ap4h.mov'
+        root_name: 'primary'
+                
+    nuke_shot_render_x264:
+        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_x264.mov'
+        root_name: 'primary'
+    nuke_shot_render_pub_x264:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_x264.mov'
         root_name: 'primary'
         
 
