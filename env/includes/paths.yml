@@ -116,7 +116,7 @@ rv_linux: rv
 #
 jp_mac: /Applications/Jaunt Player.app
 jp_win: C:\Program Files\Jaunt\Jaunt Player.exe
-jp_linux: 
+jp_linux: jp
 
 #
 # Premiere

@@ -39,19 +39,19 @@ engines:
       tk-multi-launchnukex: '@launch_nukex'
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
-      tk-multi-screeningroom: '@launch_screeningroom'
-      tk-shotgun-launchpublish:
+      # tk-multi-screeningroom: '@launch_screeningroom'
+      tk-shotgun-jaunt-launchmovie:
         deny_permissions: []
-        deny_platforms: []
-        hook_launch_publish: default
+        deny_platforms: [linux]
+        hook_launch_movie: default
         location:
-          name: tk-shotgun-launchpublish
-          type: app_store
-          version: v0.1.16
+          name: tk-shotgun-jaunt-launchmovie
+          type: dev
+          path: /jaunt/users/alfred/dev/shotgun/apps/tk-shotgun-jaunt-launchmovie/v0.0.1
         viewer_extensions: [exr, mov, mp4]
-        viewer_path_linux: '@rv_linux'
-        viewer_path_mac: '@rv_mac'
-        viewer_path_windows: '@rv_win'
+        viewer_path_linux: '@jp_linux'
+        viewer_path_mac: '@jp_mac'
+        viewer_path_windows: '@jp_win'
     debug_logging: false
     location:
       name: tk-shotgun
