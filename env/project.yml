@@ -431,6 +431,7 @@ engines:
       tk-multi-screeningroom: '@launch_screeningroom'
       tk-multi-launchpremiere: '@launch_premiere'
       tk-multi-importcut: '@tk-multi-importcut'
+      tk-multi-scriptedapp: '@tk-multi-scriptedapp'
       tk-premiere-jauntvr: '@tk-premiere-jauntvr'
       tk-multi-importmedia: '@tk-multi-importmedia'
     location:
