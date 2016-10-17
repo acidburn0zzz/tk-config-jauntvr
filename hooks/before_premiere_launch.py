@@ -74,8 +74,8 @@ class BeforePremiereLaunch(tank.Hook):
                         multi_launchapp.log_info("Unable to copy and launch Premiere with extension")
                         return
                     multi_launchapp.log_info("Attempting to copy %s to %s..." % (source_path, install_path))
-                    # os.system('cp -r "%s" "%s"' % (source_path, install_path))
-                    copy_tree(source_path, install_path)
+                    os.system('cp -r "%s" "%s"' % (source_path, install_path))
+                    # copy_tree(source_path, install_path)
                     # Update the panel shotgun projects and render profiles lists
                     multi_launchapp.log_info("Attempting to refresh panel index %s..." % install_path)
                     refresh_panel = "%s/bash/make_index.sh" % install_path
