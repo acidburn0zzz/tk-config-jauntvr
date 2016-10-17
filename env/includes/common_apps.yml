@@ -281,20 +281,6 @@ tk-multi-pythonconsole-defaults:
       version: v0.0.1
       type: app_store
       name: tk-multi-pythonconsole
-          
-tk-multi-jaunt-reviewsubmission-defaults: 
-    location: 
-      type: dev
-      path: /jaunt/apps/shotgun/data/cores/default/install/apps/jaunt/tk-multi-jaunt-reviewsubmission/v0.0.1
-    movie_height: 540
-    movie_path_template: nuke_shot_render_prores
-    movie_width: 1024
-    new_version_status: rev
-    slate_logo: icons/review_submit_logo.png
-    store_on_disk: true
-    upload_to_shotgun: true
-    version_number_padding: 3
-    codec_settings_hook: '{self}/codec_settings.py'
     
 ###############################################################################
 #
