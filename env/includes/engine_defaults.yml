@@ -18,12 +18,12 @@ tk-nuke-defaults:
       tk-multi-workfiles2: '@tk-multi-workfiles2-defaults'
       tk-nuke-jaunt-writenode: '@tk-nuke-jaunt-writenode-defaults'
       tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      tk-multi-jaunt-reviewsubmission: '@tk-multi-jaunt-reviewsubmission-defaults' 
+      # tk-multi-jaunt-reviewsubmission: '@tk-multi-jaunt-reviewsubmission-defaults' 
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []
     location: &tk-nuke-location
-      version: v0.6.7
+      version: v0.6.9
       type: app_store
       name: tk-nuke
     menu_favourites: &tk-nuke-menu_favourites

@@ -184,6 +184,8 @@ paths:
 
     shot_root: '{Sequence}/{Shot}/{Step}'
     asset_root: library/{sg_asset_type}/{Asset}/{Step}
+    dailies_root: library/dailies
+    editorial_input: dept/editorial/video/imports
 
     ##########################################################################################
     # Project level paths
@@ -418,18 +420,34 @@ paths:
         definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_{iteration}.mov'
         root_name: 'primary'
                
-    nuke_shot_render_prores:
-        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}.mov'
+    nuke_shot_render_apch_mov:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_apch.mov'
+        # definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_apch.mov'
         root_name: 'primary'
-    nuke_shot_render_pub_prores:
-        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}.mov'
-        root_name: 'primary'
+    #nuke_shot_render_pub_apch_mov:
+    #    definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_apch.mov'
+    #    root_name: 'primary'
                 
-    nuke_shot_render_h264:
-        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}.mp4'
+    nuke_shot_render_ap4h_mov:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_ap4h.mov'
+        #definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_ap4h.mov'
         root_name: 'primary'
-    nuke_shot_render_pub_h264:
-        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}.mp4'
+    #nuke_shot_render_pub_ap4h_mov:
+    #    definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_ap4h.mov'
+    #    root_name: 'primary'
+                
+    nuke_shot_render_x264_mov:
+        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_x264.mov'
+        root_name: 'primary'
+    nuke_shot_render_pub_x264_mov:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_x264.mov'
+        root_name: 'primary'
+        
+    nuke_shot_render_x264_mp4:
+        definition: '@shot_root/renders/{nuke_name}/{Shot}_{nuke_name}_v{version}_x264.mp4'
+        root_name: 'primary'
+    nuke_shot_render_pub_x264_mp4:
+        definition: '@shot_root/renders/publish/{Shot}_{nuke_name}_v{version}_x264.mp4'
         root_name: 'primary'
         
 
@@ -681,6 +699,7 @@ paths:
     nuke_asset_publish:
         definition: '@asset_root/publish/nuke/{name}.v{version}.nk'
         root_name: 'primary'
+    
 
 
     #
