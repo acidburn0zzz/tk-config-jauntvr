@@ -67,23 +67,16 @@ class BeforeNukeLaunch(tank.Hook):
             multi_launchapp.log_info("Could not create environment context!")
             multi_launchapp.log_info("OSError %s" % e.errno)  
             multi_launchapp.log_info("OSError %s" % e.filename)
-            multi_launchapp.log_info("OSError %s" % e.filename)    
         except:
             multi_launchapp.log_info("Could not create environment context!" + sys.exc_info()[0])
             
         env = pickle.loads(penv.read())
         os.environ = env
-              
-        env_vars = ["NUKE_PATH",
-                    "PATH",
-                    "PYTHONPATH",
-                    "CONDUCTOR_CONFIG",
-                    "CONDUCTOR_TOKEN_PATH",
-                    "SHARED_CORE_PYTHON",
-                    "LD_LIBRARY_PATH",
-                    "DEADLINE_PATH"]       
 
+        # do not pass the DISPLAY! 
+        env_exclude = ["DISPLAY"]
+        
         for key, var in os.environ.iteritems():
-            if key in env_vars:
+            if not key in env_exclude:
                 tank.util.append_path_to_env_var(key, var)
         
