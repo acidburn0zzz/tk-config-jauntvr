@@ -67,19 +67,19 @@ class BeforeNukeLaunch(tank.Hook):
             multi_launchapp.log_info("Could not create environment context!")
             multi_launchapp.log_info("OSError %s" % e.errno)  
             multi_launchapp.log_info("OSError %s" % e.filename)
-            multi_launchapp.log_info("OSError %s" % e.filename)    
         except:
             multi_launchapp.log_info("Could not create environment context!" + sys.exc_info()[0])
             
         env = pickle.loads(penv.read())
         os.environ = env
-              
-        # tank.util.prepend_path_to_env_var("NUKE_PATH", os.environ["NUKE_PATH"])
-        # tank.util.prepend_path_to_env_var("PATH", os.environ["PATH"])
-        # tank.util.prepend_path_to_env_var("PYTHONPATH", os.environ["PYTHONPATH"])
-        # tank.util.prepend_path_to_env_var("CONDUCTOR_CONFIG", os.environ["CONDUCTOR_CONFIG"])
-        # tank.util.prepend_path_to_env_var("CONDUCTOR_TOKEN_PATH", os.environ["CONDUCTOR_TOKEN_PATH"])
         
-        for key, var in os.environ.iteritems():
-            tank.util.prepend_path_to_env_var(key, os.environ[key])
+        tank.util.prepend_path_to_env_var("NUKE_PATH", os.environ["NUKE_PATH"])
+        tank.util.prepend_path_to_env_var("PATH", os.environ["PATH"])
+        tank.util.prepend_path_to_env_var("PYTHONPATH", os.environ["PYTHONPATH"])
+        tank.util.prepend_path_to_env_var("CONDUCTOR_CONFIG", os.environ["CONDUCTOR_CONFIG"])
+        tank.util.prepend_path_to_env_var("CONDUCTOR_TOKEN_PATH", os.environ["CONDUCTOR_TOKEN_PATH"])
+        
+        #~ for key, var in os.environ.iteritems():
+            #~ multi_launchapp.log_info("KEY: %s VAL: %s" % (key, os.environ[key]))
+            #~ tank.util.prepend_path_to_env_var(str(key), os.environ[str(key)])
         
