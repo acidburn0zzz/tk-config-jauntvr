@@ -47,7 +47,7 @@ engines:
         location:
           name: tk-shotgun-jaunt-launchmovie
           type: dev
-          path: /jaunt/users/alfred/dev/shotgun/apps/tk-shotgun-jaunt-launchmovie/v0.0.1
+          path: /jaunt/apps/shotgun/data/cores/default/install/apps/jaunt/tk-shotgun-jaunt-launchmovie/v0.0.1
         viewer_extensions: [exr, mov, mp4]
         viewer_path_linux: '@jp_linux'
         viewer_path_mac: '@jp_mac'
