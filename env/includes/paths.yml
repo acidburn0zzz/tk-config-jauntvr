@@ -119,10 +119,10 @@ jp_win: C:\Program Files\Jaunt\Jaunt Player.exe
 jp_linux: jp
 
 #
-# Premiere
+# Premiere 2017
 #
 premiere_mac: /Applications/Adobe Premiere Pro CC 2017/Adobe Premiere Pro CC 2017.app
-premiere_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2015\Premiere.exe'
+premiere_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2017\Premiere.exe'
 premiere_extras:
     mac_extension_manager_path: /Applications/Adobe Extension Manager CS6/Adobe Extension Manager CS6.app
     # An empty Python path will cause the engine to default to using the "current"
