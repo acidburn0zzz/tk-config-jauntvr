@@ -125,7 +125,7 @@ tk-multi-screeningroom-defaults:
     init_hook: '{self}/init.py'
     enable_rv_mode: true
     rv_path_windows: C:\Program Files\RV\RV64.exe
-    rv_path_mac: /Applications/RV64.app
+    rv_path_mac: /jaunt/apps/rv/latest/RV64.app
     rv_path_linux: rv
   
 tk-multi-jaunt-publish-defaults: 
