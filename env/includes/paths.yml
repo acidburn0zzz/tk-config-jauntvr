@@ -107,7 +107,7 @@ softimage_linux: XSI
 #
 # Tweak RV
 #
-rv_mac: /Applications/RV64.app
+rv_mac: /jaunt/apps/rv/latest/RV64.app
 rv_win: C:\Program Files\RV\RV64.exe
 rv_linux: rv
 
@@ -119,10 +119,18 @@ jp_win: C:\Program Files\Jaunt\Jaunt Player.exe
 jp_linux: jp
 
 #
-# Premiere
+# Premiere 2015
 #
-premiere_mac: /Applications/Adobe Premiere Pro CC 2017/Adobe Premiere Pro CC 2017.app
-premiere_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2015\Premiere.exe'
+premiere2015_mac: /Applications/Adobe Premiere Pro CC 2015.3/Adobe Premiere Pro CC 2015.app
+premiere2015_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2017\Premiere.exe'
+
+#
+# Premiere 2017
+#
+premiere2017_mac: /Applications/Adobe Premiere Pro CC 2017/Adobe Premiere Pro CC 2017.app
+premiere2017_win: 'C:\Program Files\Adobe\Adobe Premiere Pro CC 2017\Premiere.exe'
+
+
 premiere_extras:
     mac_extension_manager_path: /Applications/Adobe Extension Manager CS6/Adobe Extension Manager CS6.app
     # An empty Python path will cause the engine to default to using the "current"

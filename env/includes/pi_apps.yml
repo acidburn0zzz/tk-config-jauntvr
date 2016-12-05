@@ -61,8 +61,8 @@ launch_nukex:
   windows_args: ''
   windows_path: '@nukex_windows'
   
-launch_premiere:
-  defer_keyword: ''
+launch_premiere2017:
+  defer_keyword: '2017'
   engine: ''
   extra: '@premiere_extras'
   hook_app_launch: default
@@ -75,11 +75,34 @@ launch_premiere:
     type: app_store
     name: tk-multi-launchapp
   mac_args: ''
-  mac_path: '@premiere_mac'
-  menu_name: Launch Premiere
-  versions: []
+  mac_path: '@premiere2017_mac'
+  menu_name: Launch Premiere 2017
+  versions: ['2017']
   windows_args: ''
-  windows_path: '@premiere_win'
+  windows_path: '@premiere2017_win'
+  extension_version: v3.0.4
+  extensions:
+    pi-premiere-importcut: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr
+
+launch_premiere2015:
+  defer_keyword: '2015.3'
+  engine: ''
+  extra: '@premiere_extras'
+  hook_app_launch: default
+  hook_before_app_launch: before_premiere_launch
+  icon: '{config_path}/icons/premiere_logo.png'
+  linux_args: ''
+  linux_path: ''
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@premiere2015_mac'
+  menu_name: Launch Premiere 2015.3
+  versions: ['2015.3']
+  windows_args: ''
+  windows_path: '@premiere2015_win'
   extension_version: v3.0.4
   extensions:
     pi-premiere-importcut: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr

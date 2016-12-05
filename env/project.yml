@@ -66,23 +66,15 @@ engines:
   # -------------------------------------------------
   tk-desktop:
     apps:
-      # tk-multi-launch3dsmax: '@launch_3dsmax'
-      # tk-multi-launchhiero: '@launch_hiero'
-      # tk-multi-launchhoudini: '@launch_houdini'
-      # tk-multi-launchmari: '@launch_mari'
       tk-multi-launchmaya: '@launch_maya'
-      # tk-multi-launchmotionbuilder: '@launch_motionbuilder'
       tk-multi-launchnuke: '@launch_nuke'
       tk-multi-launchnukex: '@launch_nukex'
-      # tk-multi-launchnukestudio: '@launch_nukestudio'
-      # tk-multi-launchphotoshop: '@launch_photoshop'
-      # tk-multi-launchsoftimage: '@launch_softimage'
-      # tk-multi-screeningroom: '@launch_screeningroom'
-      tk-multi-launchpremiere: '@launch_premiere'
+      tk-multi-launchpremiere2017: '@launch_premiere2017'
+      tk-multi-launchpremiere2015: '@launch_premiere2015' 
       tk-multi-importcut: '@tk-multi-importcut'
       tk-multi-importmedia: '@tk-multi-importmedia'
     collapse_rules:
-    - {button_label: $app, match: Launch $app, menu_label: None}
+    - {button_label: $app, match: Launch $app $version, menu_label: $version}
     debug_logging: false
     default_group: Studio
     groups:
@@ -429,7 +421,7 @@ engines:
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'
-      tk-multi-launchpremiere: '@launch_premiere'
+      tk-multi-launchpremiere: '@launch_premiere2017'
       tk-multi-importcut: '@tk-multi-importcut'
       tk-multi-scriptedapp: '@tk-multi-scriptedapp'
       tk-premiere-jauntvr: '@tk-premiere-jauntvr'

@@ -60,13 +60,6 @@ engines:
       tk-multi-launchphotoshop: '@launch_photoshop'
       # tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'
-      tk-shotgun-folders:
-        deny_permissions: []
-        deny_platforms: []
-        location:
-          name: tk-shotgun-folders
-          type: app_store
-          version: v0.1.5
       tk-shotgun-launchfolder:
         deny_permissions: []
         deny_platforms: []
