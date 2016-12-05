@@ -276,6 +276,13 @@ tk-nuke-jaunt-writenode-defaults:
       tank_type: Rendered Image
       tile_color: []
 
+tk-nuke-jaunt-lineups-defaults:
+    location:
+      type: dev
+      # path: /jaunt/apps/shotgun/data/cores/default/install/apps/jaunt/tk-nuke-jaunt-lineups/v0.0.1
+      path:  /jaunt/users/alfred/dev/shotgun/core/data/cores/default/install/apps/jaunt/tk-nuke-jaunt-lineups/v0.0.1
+    template_script_work: nuke_shot_work
+
 tk-multi-pythonconsole-defaults:
     location: 
       version: v0.0.1

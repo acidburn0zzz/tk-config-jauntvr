@@ -127,10 +127,11 @@ engines:
     apps:
       tk-multi-about: '@about'
       tk-multi-workfiles2: '@workfiles2'
-      tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults'
-      tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'      
+      # tk-multi-jaunt-publish: '@tk-multi-jaunt-publish-defaults'
+      tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'   
+      tk-nuke-jaunt-lineups: '@tk-nuke-jaunt-lineups-defaults'   
     compatibility_dialog_min_version: 10
-    debug_logging: false
+    debug_logging: true
     favourite_directories: []
     location:
       version: v0.6.9
