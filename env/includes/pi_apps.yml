@@ -121,7 +121,7 @@ tk-multi-importcut:
       name: tk-multi-importcut-jauntvr
 
 tk-multi-scriptedapp:
-    scripts_path: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr/v3.0.4/python
+    scripts_path: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr/v3.0.5/python
     location:
       version: v0.0.1
       type: app_store
