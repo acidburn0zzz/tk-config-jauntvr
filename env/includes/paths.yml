@@ -33,17 +33,52 @@ maya_linux: maya
 #
 # NukeX
 #
-nukex_mac: /jaunt/apps/nuke/latest/NukeX10.0v4.app
-nukex_windows: 'C:\Program Files\Nuke10.0v3\Nuke10.0.exe --nukex'
-nukex_linux: /jaunt/apps/nuke/latest/Nuke10.0 --nukex
+nukex_mac: /jaunt/apps/nuke/latest/NukeX10.5v1.app
+nukex_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe --nukex'
+nukex_linux: /jaunt/apps/nuke/latest/Nuke10.5 --nukex
 
 
 #
 # Nuke
 #
-nuke_mac: /jaunt/apps/nuke/latest/Nuke10.0v4.app
-nuke_windows: 'C:\Program Files\Nuke10.0v3\Nuke10.0.exe' 
-nuke_linux: /jaunt/apps/nuke/latest/Nuke10.0
+nuke_mac: /jaunt/apps/nuke/latest/Nuke10.5v1.app
+nuke_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe' 
+nuke_linux: /jaunt/apps/nuke/latest/Nuke10.5
+
+
+
+
+#
+# NukeX10.0v5
+#
+nuke10.0v5x_mac: /jaunt/apps/nuke/10.0v5/NukeX10.0v5.app
+nuke10.0v5x_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe --nukex'
+nuke10.0v5x_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0 --nukex
+
+
+#
+# Nuke10.0v5
+#
+nuke10.0v5_mac: /jaunt/apps/nuke/10.0v5/Nuke10.0v5.app
+nuke10.0v5_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe' 
+nuke10.0v5_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0
+
+#
+# NukeX10.5v1
+#
+nuke10.5v1x_mac: /jaunt/apps/nuke/10.5v1/NukeX10.5v1.app
+nuke10.5v1x_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe --nukex'
+nuke10.5v1x_linux: /jaunt/apps/nuke/10.5v1/Nuke10.5 --nukex
+
+
+#
+# Nuke10.5v1
+#
+nuke10.5v1_mac: /jaunt/apps/nuke/10.5v1/Nuke10.5.app
+nuke10.5v1_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe' 
+nuke10.5v1_linux: /jaunt/apps/nuke/10.5v1/Nuke10.5
+
+
 
 
 #
@@ -117,6 +152,7 @@ rv_linux: rv
 jp_mac: /Applications/Jaunt Player.app
 jp_win: C:\Program Files\Jaunt\Jaunt Player.exe
 jp_linux: jp
+
 
 #
 # Premiere 2015

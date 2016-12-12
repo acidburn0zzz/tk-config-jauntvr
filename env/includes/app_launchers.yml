@@ -180,8 +180,8 @@ launch_nuke:
     name: tk-multi-launchapp
   mac_args: ''
   mac_path: '@nuke_mac'
-  menu_name: Launch Nuke
-  versions: []
+  menu_name: Launch Nuke {version}
+  versions: ['10.05v1', '10.5v1']
   windows_args: ''
   windows_path: '@nuke_windows'
 #
@@ -203,8 +203,8 @@ launch_nukex:
     name: tk-multi-launchapp
   mac_args: ''
   mac_path: '@nukex_mac'
-  menu_name: Launch NukeX
-  versions: []
+  menu_name: Launch NukeX {version}
+  versions: ['10.05v1x', '10.5v1x']
   windows_args: ''
   windows_path: '@nukex_windows'
 
