@@ -30,20 +30,20 @@ maya_linux: maya
 
 
 
-#
-# NukeX
-#
-nukex_mac: /jaunt/apps/nuke/latest/NukeX10.5v1.app
-nukex_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe --nukex'
-nukex_linux: /jaunt/apps/nuke/latest/Nuke10.5 --nukex
+##
+## NukeX
+##
+#nukex_mac: /jaunt/apps/nuke/latest/NukeX10.5v1.app
+#nukex_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe --nukex'
+#nukex_linux: /jaunt/apps/nuke/latest/Nuke10.5 --nukex
 
 
-#
-# Nuke
-#
-nuke_mac: /jaunt/apps/nuke/latest/Nuke10.5v1.app
-nuke_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe' 
-nuke_linux: /jaunt/apps/nuke/latest/Nuke10.5
+##
+## Nuke
+##
+#nuke_mac: /jaunt/apps/nuke/latest/Nuke10.5v1.app
+#nuke_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe' 
+#nuke_linux: /jaunt/apps/nuke/latest/Nuke10.5
 
 
 
