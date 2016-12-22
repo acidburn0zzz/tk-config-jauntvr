@@ -158,7 +158,7 @@ frameworks:
   tk-framework-pi_v0.x.x:
     location: {name: tk-framework-pi, type: app_store, version: v0.0.1}
   tk-framework-editorial_v1.x.x:
-    location: {name: tk-framework-editorial, type: app_store, version: v1.3.1}
+    location: {name: tk-framework-editorial, type: app_store, version: v1.4.1}
   tk-framework-wb_v3.x.x:
     location: {name: tk-framework-wb, type: app_store, version: v3.4.0}
   tk-framework-wb_v4.x.x:
