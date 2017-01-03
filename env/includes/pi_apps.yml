@@ -80,7 +80,7 @@ launch_premiere2017:
   versions: ['2017']
   windows_args: ''
   windows_path: '@premiere2017_win'
-  extension_version: v3.0.6
+  extension_version: v3.0.7
   extensions:
     pi-premiere-importcut: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr
 
@@ -103,7 +103,7 @@ launch_premiere2015:
   versions: ['2015.3']
   windows_args: ''
   windows_path: '@premiere2015_win'
-  extension_version: v3.0.6
+  extension_version: v3.0.7
   extensions:
     pi-premiere-importcut: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr
 
@@ -111,7 +111,7 @@ launch_premiere2015:
 
 tk-premiere-jauntvr:
     location:
-      version: v3.0.6
+      version: v3.0.7
       type: app_store
       name: tk-premiere-jauntvr
 
@@ -123,7 +123,7 @@ tk-multi-importcut:
       name: tk-multi-importcut-jauntvr
 
 tk-multi-scriptedapp:
-    scripts_path: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr/v3.0.6/python
+    scripts_path: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr/v3.0.7/python
     location:
       version: v0.0.1
       type: app_store
