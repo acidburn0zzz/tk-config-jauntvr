@@ -116,7 +116,7 @@ tk-premiere-jauntvr:
 tk-multi-importcut:
     display_name: Import Cut
     location:
-      version: v0.0.8
+      version: v0.0.9
       type: app_store
       name: tk-multi-importcut-jauntvr
 
