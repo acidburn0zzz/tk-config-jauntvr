@@ -22,21 +22,106 @@ includes:
 # first include the configuration's global settings for application paths
 - ./paths.yml
 
+launch_nuke:
+  defer_keyword: ''
+  engine: tk-nuke
+  extra: {}
+  hook_app_launch: default
+  hook_before_app_launch: before_nuke_launch
+  icon: '{target_engine}/icon_256.png'
+  linux_args: ''
+  linux_path: '@nuke_linux'
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@nuke_mac'
+  menu_name: Launch Nuke
+  versions: []
+  windows_args: ''
+  windows_path: '@nuke_windows'
+launch_nukex:
+  defer_keyword: ''
+  engine: tk-nukex
+  extra: {}
+  hook_app_launch: default
+  hook_before_app_launch: before_nuke_launch
+  icon: '{target_engine}/icon_256.png'
+  linux_args: ''
+  linux_path: '@nukex_linux'
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@nukex_mac'
+  menu_name: Launch NukeX
+  versions: []
+  windows_args: ''
+  windows_path: '@nukex_windows'
+  
+launch_premiere2017:
+  defer_keyword: '2017'
+  engine: ''
+  extra: '@premiere_extras'
+  hook_app_launch: default
+  hook_before_app_launch: before_premiere_launch
+  icon: '{config_path}/icons/premiere_logo.png'
+  linux_args: ''
+  linux_path: ''
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@premiere2017_mac'
+  menu_name: Launch Premiere 2017
+  versions: ['2017']
+  windows_args: ''
+  windows_path: '@premiere2017_win'
+  extension_version: v3.1.0
+  extensions:
+    pi-premiere-importcut: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr
+
+launch_premiere2015:
+  defer_keyword: '2015.3'
+  engine: ''
+  extra: '@premiere_extras'
+  hook_app_launch: default
+  hook_before_app_launch: before_premiere_launch
+  icon: '{config_path}/icons/premiere_logo.png'
+  linux_args: ''
+  linux_path: ''
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@premiere2015_mac'
+  menu_name: Launch Premiere 2015.3
+  versions: ['2015.3']
+  windows_args: ''
+  windows_path: '@premiere2015_win'
+  extension_version: v3.1.0
+  extensions:
+    pi-premiere-importcut: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr
+
 tk-premiere-jauntvr:
     location:
-      version: v3.0.5
-      type: app_store
-      name: tk-premiere-jauntvr
+      version: v3.1.0
+      type: dev
+      path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr
 
 tk-multi-importcut:
     display_name: Import Cut
     location:
-      version: v0.0.4
+      version: v0.0.9
       type: app_store
       name: tk-multi-importcut-jauntvr
 
 tk-multi-scriptedapp:
-    scripts_path: /jaunt/apps/shotgun/data/cores/default/install/apps/app_store/tk-premiere-jauntvr/v3.0.5/python
+    scripts_path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0/python
     location:
       version: v0.0.1
       type: app_store
@@ -71,7 +156,7 @@ frameworks:
   tk-framework-pi_v0.x.x:
     location: {name: tk-framework-pi, type: app_store, version: v0.0.1}
   tk-framework-editorial_v1.x.x:
-    location: {name: tk-framework-editorial, type: app_store, version: v1.3.1}
+    location: {name: tk-framework-editorial, type: app_store, version: v1.4.1}
   tk-framework-wb_v3.x.x:
     location: {name: tk-framework-wb, type: app_store, version: v3.4.0}
   tk-framework-wb_v4.x.x:

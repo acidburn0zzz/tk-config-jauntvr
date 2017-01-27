@@ -67,10 +67,8 @@ engines:
   tk-desktop:
     apps:
       tk-multi-launchmaya: '@launch_maya'
-      tk-multi-launchnuke10.5v1: '@launch_nuke10.5v1'
-      tk-multi-launchnuke10.5v1x: '@launch_nuke10.5v1x'
-      tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
-      tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
+      tk-multi-launchnuke: '@launch_nuke'
+      tk-multi-launchnukex: '@launch_nukex'
       tk-multi-launchpremiere2017: '@launch_premiere2017'
       tk-multi-launchpremiere2015: '@launch_premiere2015' 
       tk-multi-importcut: '@tk-multi-importcut'
@@ -198,8 +196,6 @@ engines:
       tk-multi-workfiles2: '@workfiles2'
       tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
       tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-    collapse_rules:
-    - {button_label: $app, match: Launch $app $version, menu_label: $version}
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []
@@ -223,8 +219,6 @@ engines:
       tk-multi-workfiles2: '@workfiles2'
       tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
       tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-    collapse_rules:
-    - {button_label: $app, match: Launch $app $version, menu_label: $version}
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []
@@ -421,10 +415,8 @@ engines:
       tk-multi-launchmari: '@launch_mari'
       tk-multi-launchmaya: '@launch_maya'
       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
-      tk-multi-launchnuke10.5v1: '@launch_nuke10.5v1'
-      tk-multi-launchnuke10.5v1x: '@launch_nuke10.5v1x'
-      tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
-      tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
+      tk-multi-launchnuke: '@launch_nuke'
+      tk-multi-launchnukex: '@launch_nukex'
       tk-multi-launchnukestudio: '@launch_nukestudio'
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
