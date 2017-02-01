@@ -111,7 +111,7 @@ tk-premiere-jauntvr:
     location:
       version: v3.1.0
       type: dev
-      path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr
+      path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0
 
 tk-multi-importcut:
     display_name: Import Cut
