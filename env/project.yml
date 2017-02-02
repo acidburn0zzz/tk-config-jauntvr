@@ -67,8 +67,10 @@ engines:
   tk-desktop:
     apps:
       tk-multi-launchmaya: '@launch_maya'
-      tk-multi-launchnuke: '@launch_nuke'
-      tk-multi-launchnukex: '@launch_nukex'
+      tk-multi-launchnuke10.5v1: '@launch_nuke10.5v1'
+      tk-multi-launchnuke10.5v1x: '@launch_nuke10.5v1x'
+      tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
+      tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
       tk-multi-launchpremiere2017: '@launch_premiere2017'
       tk-multi-launchpremiere2015: '@launch_premiere2015' 
       tk-multi-importcut: '@tk-multi-importcut'
@@ -190,49 +192,13 @@ engines:
   # -------------------------------------------------
   # Nuke
   # -------------------------------------------------
-  tk-nuke:
-    apps:
-      tk-multi-about: '@about'
-      tk-multi-workfiles2: '@workfiles2'
-      tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-    compatibility_dialog_min_version: 10
-    debug_logging: false
-    favourite_directories: []
-    location:
-      version: v0.6.9
-      type: app_store
-      name: tk-nuke
-    menu_favourites:
-    - {app_instance: tk-multi-workfiles2, name: File Open...}
-    project_favourite_name: Shotgun Current Project
-    use_sgtk_as_menu_name: false
-    bin_context_menu: []
-    spreadsheet_context_menu: []
-    timeline_context_menu: []
+  tk-nuke: '@tk-nuke-defaults'
+  
   # -------------------------------------------------
   # NukeX
   # -------------------------------------------------
-  tk-nukex:
-    apps:
-      tk-multi-about: '@about'
-      tk-multi-workfiles2: '@workfiles2'
-      tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-    compatibility_dialog_min_version: 10
-    debug_logging: false
-    favourite_directories: []
-    location:
-      version: v0.6.9
-      type: app_store
-      name: tk-nuke
-    menu_favourites:
-    - {app_instance: tk-multi-workfiles2, name: File Open...}
-    project_favourite_name: Shotgun Current Project
-    use_sgtk_as_menu_name: false
-    bin_context_menu: []
-    spreadsheet_context_menu: []
-    timeline_context_menu: []
+  tk-nukex: '@tk-nuke-defaults'
+  
   # -------------------------------------------------
   # Nuke Studio
   # -------------------------------------------------
@@ -415,9 +381,7 @@ engines:
       tk-multi-launchmari: '@launch_mari'
       tk-multi-launchmaya: '@launch_maya'
       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
-      tk-multi-launchnuke: '@launch_nuke'
-      tk-multi-launchnukex: '@launch_nukex'
-      tk-multi-launchnukestudio: '@launch_nukestudio'
+      # tk-multi-launchnukestudio: '@launch_nukestudio'
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'

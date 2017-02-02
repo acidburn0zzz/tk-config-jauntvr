@@ -165,7 +165,9 @@ launch_motionbuilder:
 # -------------------------------------------------
 # Nuke
 # -------------------------------------------------
-launch_nuke:
+
+
+launch_nuke10.0v5:
   defer_keyword: ''
   engine: tk-nuke
   extra: {}
@@ -173,22 +175,19 @@ launch_nuke:
   hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
-  linux_path: '@nuke_linux'
+  linux_path: '@nuke10.0v5_linux'
   location:
     version: v0.7.6
     type: app_store
     name: tk-multi-launchapp
   mac_args: ''
-  mac_path: '@nuke_mac'
-  menu_name: Launch Nuke
-  versions: []
+  mac_path: '@nuke10.0v5_mac'
+  menu_name: Launch Nuke 10.0v5
+  versions: ['10.0v5']
   windows_args: ''
-  windows_path: '@nuke_windows'
-#
-# -------------------------------------------------
-# NukeX
-# -------------------------------------------------
-launch_nukex:
+  windows_path: '@nuke10.0v5_windows'
+  
+launch_nuke10.0v5x:
   defer_keyword: ''
   engine: tk-nukex
   extra: {}
@@ -196,40 +195,125 @@ launch_nukex:
   hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
-  linux_path: '@nukex_linux'
+  linux_path: '@nuke10.0v5x_linux'
   location:
     version: v0.7.6
     type: app_store
     name: tk-multi-launchapp
   mac_args: ''
-  mac_path: '@nukex_mac'
-  menu_name: Launch NukeX
-  versions: []
+  mac_path: '@nuke10.0v5x_mac'
+  menu_name: Launch NukeX 10.0v5
+  versions: ['10.0v5x']
   windows_args: ''
-  windows_path: '@nukex_windows'
+  windows_path: '@nuke10.0v5x_windows'
+ 
+launch_nuke10.5v1:
+  defer_keyword: ''
+  engine: tk-nuke
+  extra: {}
+  hook_app_launch: default
+  hook_before_app_launch: before_nuke_launch
+  icon: '{target_engine}/icon_256.png'
+  linux_args: ''
+  linux_path: '@nuke10.5v1_linux'
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@nuke10.5v1_mac'
+  menu_name: Launch Nuke 10.5v1
+  versions: ['10.5v1']
+  windows_args: ''
+  windows_path: '@nuke10.5v1_windows'
+  
+launch_nuke10.5v1x:
+  defer_keyword: ''
+  engine: tk-nukex
+  extra: {}
+  hook_app_launch: default
+  hook_before_app_launch: before_nuke_launch
+  icon: '{target_engine}/icon_256.png'
+  linux_args: ''
+  linux_path: '@nuke10.5v1x_linux'
+  location:
+    version: v0.7.6
+    type: app_store
+    name: tk-multi-launchapp
+  mac_args: ''
+  mac_path: '@nuke10.5v1x_mac'
+  menu_name: Launch NukeX 10.5v1
+  versions: ['10.5v1x']
+  windows_args: ''
+  windows_path: '@nuke10.5v1x_windows'
+  
+
+
+#~ launch_nuke:
+  #~ defer_keyword: ''
+  #~ engine: tk-nuke
+  #~ extra: {}
+  #~ hook_app_launch: default
+  #~ hook_before_app_launch: before_nuke_launch
+  #~ icon: '{target_engine}/icon_256.png'
+  #~ linux_args: ''
+  #~ linux_path: '@nuke_linux'
+  #~ location:
+    #~ version: v0.7.6
+    #~ type: app_store
+    #~ name: tk-multi-launchapp
+  #~ mac_args: ''
+  #~ mac_path: '@nuke_mac'
+  #~ menu_name: Launch Nuke
+  #~ versions: []
+  #~ windows_args: ''
+  #~ windows_path: '@nuke_windows'
+#
+# -------------------------------------------------
+# NukeX
+# -------------------------------------------------
+#~ launch_nukex:
+  #~ defer_keyword: ''
+  #~ engine: tk-nukex
+  #~ extra: {}
+  #~ hook_app_launch: default
+  #~ hook_before_app_launch: before_nuke_launch
+  #~ icon: '{target_engine}/icon_256.png'
+  #~ linux_args: ''
+  #~ linux_path: '@nukex_linux'
+  #~ location:
+    #~ version: v0.7.6
+    #~ type: app_store
+    #~ name: tk-multi-launchapp
+  #~ mac_args: ''
+  #~ mac_path: '@nukex_mac'
+  #~ menu_name: Launch NukeX
+  #~ versions: []
+  #~ windows_args: ''
+  #~ windows_path: '@nukex_windows'
 
 # -------------------------------------------------
 # Nuke Studio
 # -------------------------------------------------
-launch_nukestudio:
-  defer_keyword: ''
-  engine: tk-nukestudio
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: before_nuke_launch
-  icon: '{target_engine}/icon_nukestudio_256.png'
-  linux_args: --studio
-  linux_path: '@nukestudio_linux'
-  location:
-    version: v0.7.6
-    type: app_store
-    name: tk-multi-launchapp
-  mac_args: ''
-  mac_path: '@nukestudio_mac'
-  menu_name: Launch NukeStudio
-  versions: []
-  windows_args: --studio
-  windows_path: '@nukestudio_windows'
+#~ launch_nukestudio:
+  #~ defer_keyword: ''
+  #~ engine: tk-nukestudio
+  #~ extra: {}
+  #~ hook_app_launch: default
+  #~ hook_before_app_launch: before_nuke_launch
+  #~ icon: '{target_engine}/icon_nukestudio_256.png'
+  #~ linux_args: --studio
+  #~ linux_path: '@nukestudio_linux'
+  #~ location:
+    #~ version: v0.7.6
+    #~ type: app_store
+    #~ name: tk-multi-launchapp
+  #~ mac_args: ''
+  #~ mac_path: '@nukestudio_mac'
+  #~ menu_name: Launch NukeStudio
+  #~ versions: []
+  #~ windows_args: --studio
+  #~ windows_path: '@nukestudio_windows'
 #
 # -------------------------------------------------
 # Photoshop
