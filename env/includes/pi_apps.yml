@@ -70,16 +70,21 @@ launch_premiere2015:
 
 tk-premiere-jauntvr:
     location:
-      version: v3.1.0
       type: dev
       path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0
+
+#~ tk-multi-importcut:
+    #~ display_name: Import Cut
+    #~ location:
+      #~ version: v0.0.9
+      #~ type: app_store
+      #~ name: tk-multi-importcut-jauntvr
 
 tk-multi-importcut:
     display_name: Import Cut
     location:
-      version: v0.0.9
-      type: app_store
-      name: tk-multi-importcut-jauntvr
+      type: dev
+      path: /jaunt/prod/library/shotgun/dev/apps/tk-multi-importcut-jauntvr/v0.1.0
 
 tk-multi-scriptedapp:
     scripts_path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0/python
@@ -116,8 +121,8 @@ tk-multi-importmedia:
 frameworks:
   tk-framework-pi_v0.x.x:
     location: {name: tk-framework-pi, type: app_store, version: v0.0.1}
-  tk-framework-editorial_v1.x.x:
-    location: {name: tk-framework-editorial, type: app_store, version: v1.4.1}
+  tk-framework-editorial_v2.x.x:
+    location: {name: tk-framework-editorial, type: app_store, version: v2.0.0}
   tk-framework-wb_v3.x.x:
     location: {name: tk-framework-wb, type: app_store, version: v3.4.0}
   tk-framework-wb_v4.x.x:
