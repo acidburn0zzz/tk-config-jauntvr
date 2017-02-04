@@ -86,12 +86,19 @@ tk-multi-importcut:
       type: dev
       path: /jaunt/prod/library/shotgun/dev/apps/tk-multi-importcut-jauntvr/v0.1.0
 
+
+#~ tk-multi-scriptedapp:
+    #~ scripts_path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0/python
+    #~ location:
+      #~ version: v0.0.1
+      #~ type: app_store
+      #~ name: tk-multi-scriptedapp-jauntvr
+
 tk-multi-scriptedapp:
     scripts_path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0/python
     location:
-      version: v0.0.1
-      type: app_store
-      name: tk-multi-scriptedapp-jauntvr
+      type: dev
+      path: /jaunt/prod/library/shotgun/dev/apps/tk-multi-scriptedapp-jauntvr/v0.0.2
 
 tk-multi-importmedia:
   columns: [NAME, FORMATS, EXISTS, STEREO]
