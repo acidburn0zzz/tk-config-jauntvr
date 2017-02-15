@@ -42,7 +42,7 @@ launch_premiere2017:
   versions: ['2017']
   windows_args: ''
   windows_path: '@premiere2017_win'
-  extension_version: v3.1.0
+  extension_version: v3.1.1
   extensions:
     pi-premiere-importcut: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr
 
@@ -65,43 +65,26 @@ launch_premiere2015:
   versions: ['2015.3']
   windows_args: ''
   windows_path: '@premiere2015_win'
-  extension_version: v3.1.0
+  extension_version: v3.1.1
   extensions:
     pi-premiere-importcut: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr
 
 tk-premiere-jauntvr:
     location:
       type: dev
-      path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr/v3.1.0
-
-#~ tk-multi-importcut:
-    #~ display_name: Import Cut
-    #~ location:
-      #~ version: v0.0.9
-      #~ type: app_store
-      #~ name: tk-multi-importcut-jauntvr
+      path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr/v3.1.1
 
 tk-multi-importcut:
     display_name: Import Cut
     location:
       type: dev
-      path: /jaunt/prod/library/shotgun/dev/apps/tk-multi-importcut-jauntvr/v0.1.0
-
-
-#~ tk-multi-scriptedapp:
-    #~ scripts_path: /jaunt/prod/library/shotgun/dev/apps/tk-premiere-jauntvr/v3.1.0/python
-    #~ location:
-      #~ version: v0.0.1
-      #~ type: app_store
-      #~ name: tk-multi-scriptedapp-jauntvr
-
+      path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-multi-importcut-jauntvr/v0.1.0
 
 tk-multi-scriptedapp:
     scripts_path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr/v3.1.0/python
     location:
       type: dev
-      path: /jaunt/prod/library/shotgun/dev/apps/tk-multi-scriptedapp-jauntvr/v0.0.2
-
+      path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-multi-scriptedapp-jauntvr/v0.0.2
 
 tk-multi-importmedia:
   columns: [NAME, FORMATS, EXISTS, STEREO]
