@@ -81,7 +81,7 @@ tk-multi-importcut:
       path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-multi-importcut-jauntvr/v0.1.0
 
 tk-multi-scriptedapp:
-    scripts_path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr/v3.1.0/python
+    scripts_path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr/v3.1.1/python
     location:
       type: dev
       path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-multi-scriptedapp-jauntvr/v0.0.2
