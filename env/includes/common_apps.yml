@@ -116,6 +116,43 @@ workfiles2-launch-at-startup:
   template_work_area:
   version_compare_ignore_fields: []
 
+
+
+tk-multi-workfiles2-defaults:
+    allow_task_creation: true
+    create_new_task_hook: default
+    custom_actions_hook: default
+    entities: &tk-multi-workfiles2-entities
+    - caption: Assets
+      entity_type: Task
+      filters:
+      - [entity, type_is, Asset]
+      hierarchy: [entity.Asset.sg_asset_type, entity, step, content]
+    - caption: Shots
+      entity_type: Task
+      filters:
+      - [entity, type_is, Shot]
+      hierarchy: [entity.Shot.sg_sequence, entity, step, content]
+    file_extensions: []
+    hook_copy_file: default
+    hook_filter_publishes: default
+    hook_filter_work_files: default
+    hook_scene_operation: default
+    launch_at_startup: false
+    location: &tk-multi-workfiles2-location
+      version: v0.7.37
+      type: app_store
+      name: tk-multi-workfiles2
+    my_tasks_extra_display_fields: []
+    saveas_default_name: scene
+    saveas_prefer_version_up: false
+    show_my_tasks: true
+    template_publish: nuke_shot_publish
+    template_publish_area: shot_publish_area_nuke
+    template_work: nuke_shot_work
+    template_work_area: shot_work_area_nuke
+    version_compare_ignore_fields: []
+
 tk-multi-screeningroom-defaults: 
     location: &tk-multi-screeningroom-location
       version: v0.3.0
@@ -208,40 +245,6 @@ tk-multi-snapshot-defaults:
     template_snapshot: nuke_shot_snapshot
     template_work: nuke_shot_work
     
-tk-multi-workfiles2-defaults:
-    allow_task_creation: true
-    create_new_task_hook: default
-    custom_actions_hook: default
-    entities: &tk-multi-workfiles2-entities
-    - caption: Assets
-      entity_type: Task
-      filters:
-      - [entity, type_is, Asset]
-      hierarchy: [entity.Asset.sg_asset_type, entity, step, content]
-    - caption: Shots
-      entity_type: Task
-      filters:
-      - [entity, type_is, Shot]
-      hierarchy: [entity.Shot.sg_sequence, entity, step, content]
-    file_extensions: []
-    hook_copy_file: default
-    hook_filter_publishes: default
-    hook_filter_work_files: default
-    hook_scene_operation: default
-    launch_at_startup: false
-    location: &tk-multi-workfiles2-location
-      version: v0.7.37
-      type: app_store
-      name: tk-multi-workfiles2
-    my_tasks_extra_display_fields: []
-    saveas_default_name: scene
-    saveas_prefer_version_up: false
-    show_my_tasks: true
-    template_publish: nuke_shot_publish
-    template_publish_area: shot_publish_area_nuke
-    template_work: nuke_shot_work
-    template_work_area: shot_work_area_nuke
-    version_compare_ignore_fields: []
 
 tk-nuke-jaunt-writenode-defaults:
     location:

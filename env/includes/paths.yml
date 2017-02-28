@@ -30,6 +30,38 @@ maya_linux: maya
 
 
 
+#~ #
+#~ # NukeX10.0v5
+#~ #
+#~ nuke10.0v5x_mac: /jaunt/apps/nuke/10.0v5/NukeX10.0v5.app
+#~ nuke10.0v5x_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe --nukex'
+#~ nuke10.0v5x_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0 --nukex
+
+
+#~ #
+#~ # Nuke10.0v5
+#~ #
+#~ nuke10.0v5_mac: /jaunt/apps/nuke/10.0v5/Nuke10.0v5.app
+#~ nuke10.0v5_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe' 
+#~ nuke10.0v5_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0
+
+#~ #
+#~ # NukeX10.5v2
+#~ #
+#~ nuke10.5v2x_mac: /jaunt/apps/nuke/10.5v2/NukeX10.5v2.app
+#~ nuke10.5v2x_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe --nukex'
+#~ nuke10.5v2x_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5 --nukex
+
+
+#~ #
+#~ # Nuke10.5v2
+#~ #
+#~ nuke10.5v2_mac: /jaunt/apps/nuke/10.5v2/Nuke10.5.app
+#~ nuke10.5v2_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe' 
+#~ nuke10.5v2_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5
+
+
+
 #
 # NukeX10.0v5
 #
@@ -46,45 +78,19 @@ nuke10.0v5_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe'
 nuke10.0v5_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0
 
 #
-# NukeX10.5v1
+# NukeX10.5v2
 #
-nuke10.5v1x_mac: /jaunt/apps/nuke/10.5v1/NukeX10.5v1.app
-nuke10.5v1x_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe --nukex'
-nuke10.5v1x_linux: /jaunt/apps/nuke/10.5v1/Nuke10.5 --nukex
+nuke10.5v2x_mac: /jaunt/apps/nuke/10.5v2/NukeX10.5v2.app
+nuke10.5v2x_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe --nukex'
+nuke10.5v2x_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5 --nukex
 
 
 #
-# Nuke10.5v1
+# Nuke10.5v2
 #
-nuke10.5v1_mac: /jaunt/apps/nuke/10.5v1/Nuke10.5.app
-nuke10.5v1_windows: 'C:\Program Files\Nuke10.5v1\Nuke10.5.exe' 
-nuke10.5v1_linux: /jaunt/apps/nuke/10.5v1/Nuke10.5
-
-
-
-#~ #
-#~ # NukeX
-#~ #
-#~ nukex_mac: /jaunt/apps/nuke/latest/NukeX10.0v4.app
-#~ nukex_windows: 'C:\Program Files\Nuke10.0v3\Nuke10.0.exe --nukex'
-#~ nukex_linux: /jaunt/apps/nuke/latest/Nuke10.0 --nukex
-
-
-#~ #
-#~ # Nuke
-#~ #
-#~ nuke_mac: /jaunt/apps/nuke/latest/Nuke10.0v4.app
-#~ nuke_windows: 'C:\Program Files\Nuke10.0v3\Nuke10.0.exe' 
-#~ nuke_linux: /jaunt/apps/nuke/latest/Nuke10.0
-
-
-#~ #
-#~ # Nuke Studio
-#~ #
-#~ nukestudio_mac: /jaunt/apps/nuke/10.0v1/Nuke10.0v1.app
-#~ nukestudio_windows: 'C:\Program Files\Nuke9.0v8\Nuke9.0.exe'
-#~ nukestudio_linux: /jaunt/apps/nuke/10.0v1/Nuke10.0 --nukex
-
+nuke10.5v2_mac: /jaunt/apps/nuke/10.5v2/Nuke10.5.app
+nuke10.5v2_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe' 
+nuke10.5v2_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5
 
 #
 # motionbuilder

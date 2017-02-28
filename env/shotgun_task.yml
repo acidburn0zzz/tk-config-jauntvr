@@ -35,8 +35,8 @@ engines:
       tk-multi-launchmari: '@launch_mari'
       tk-multi-launchmaya: '@launch_maya'
       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
-      #~ tk-multi-launchnuke: '@launch_nuke'
-      #~ tk-multi-launchnukex: '@launch_nukex'
+      tk-multi-launchnuke: '@launch_nuke'
+      tk-multi-launchnukex: '@launch_nukex'
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'
@@ -52,6 +52,18 @@ engines:
       name: tk-shotgun
       type: app_store
       version: v0.5.1
+
+  #
+  # -------------------------------------------------
+  # Nuke
+  # -------------------------------------------------
+  tk-nuke: '@tk-nuke-no-context-defaults'
+  
+  # -------------------------------------------------
+  # NukeX
+  # -------------------------------------------------
+  tk-nukex: '@tk-nuke-no-context-defaults'
+  
 
 #
 ###############################################################################

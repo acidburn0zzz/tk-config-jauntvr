@@ -70,8 +70,9 @@ class BeforeNukeLaunch(tank.Hook):
             multi_launchapp.log_info("Could not create environment context!" + sys.exc_info()[0])
             
         env = pickle.loads(penv.read())
+        env["NUKE_PATH"] = env["NUKE_PATH"] + ":" + env["NUKE_PLUGIN_PATH"] + ":" + env["NUKE_PATH_10_5"]
         os.environ = env
-
+        
         # do not pass the DISPLAY! 
         env_exclude = ["DISPLAY"]
         

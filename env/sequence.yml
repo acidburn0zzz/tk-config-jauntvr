@@ -101,55 +101,20 @@ engines:
     template_project:
     use_sgtk_as_menu_name: false
 
+
   #
   # -------------------------------------------------
   # Nuke
-  #~ # -------------------------------------------------
-  #~ tk-nuke:
-    #~ apps:
-      #~ tk-multi-about: '@about'
-      #~ tk-multi-workfiles2: '@workfiles2'
-      #~ tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      #~ tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-    #~ compatibility_dialog_min_version: 10
-    #~ debug_logging: true
-    #~ favourite_directories: []
-    #~ location:
-      #~ version: v0.6.9
-      #~ type: app_store
-      #~ name: tk-nuke
-    #~ menu_favourites:
-    #~ - {app_instance: tk-multi-workfiles2, name: File Open...}
-    #~ project_favourite_name: Shotgun Current Project
-    #~ use_sgtk_as_menu_name: false
-    #~ bin_context_menu: []
-    #~ spreadsheet_context_menu: []
-    #~ timeline_context_menu: []
-    
-
+  # -------------------------------------------------
+  tk-nuke: '@tk-nuke-no-context-defaults'
+  
   # -------------------------------------------------
   # NukeX
-  #~ # -------------------------------------------------
-  #~ tk-nukex:
-    #~ apps:
-      #~ tk-multi-about: '@about'
-      #~ tk-multi-workfiles2: '@workfiles2'
-      #~ tk-multi-pythonconsole: '@tk-multi-pythonconsole-defaults'
-      #~ tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-    #~ compatibility_dialog_min_version: 10
-    #~ debug_logging: false
-    #~ favourite_directories: []
-    #~ location:
-      #~ version: v0.6.9
-      #~ type: app_store
-      #~ name: tk-nuke
-    #~ menu_favourites:
-    #~ - {app_instance: tk-multi-workfiles2, name: File Open...}
-    #~ project_favourite_name: Shotgun Current Project
-    #~ use_sgtk_as_menu_name: false
-    #~ bin_context_menu: []
-    #~ spreadsheet_context_menu: []
-    #~ timeline_context_menu: []    
+  # -------------------------------------------------
+  tk-nukex: '@tk-nuke-no-context-defaults'
+  
+  
+  
   #
   # -------------------------------------------------
   # Shell (tank command)

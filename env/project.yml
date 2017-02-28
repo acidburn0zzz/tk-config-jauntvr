@@ -67,8 +67,8 @@ engines:
   tk-desktop:
     apps:
       tk-multi-launchmaya: '@launch_maya'
-      tk-multi-launchnuke10.5v1: '@launch_nuke10.5v1'
-      tk-multi-launchnuke10.5v1x: '@launch_nuke10.5v1x'
+      tk-multi-launchnuke10.5v2: '@launch_nuke10.5v2'
+      tk-multi-launchnuke10.5v2x: '@launch_nuke10.5v2x'
       tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
       tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
       tk-multi-launchpremiere2017: '@launch_premiere2017'
@@ -192,12 +192,12 @@ engines:
   # -------------------------------------------------
   # Nuke
   # -------------------------------------------------
-  tk-nuke: '@tk-nuke-defaults'
+  tk-nuke: '@tk-nuke-no-context-defaults'
   
   # -------------------------------------------------
   # NukeX
   # -------------------------------------------------
-  tk-nukex: '@tk-nuke-defaults'
+  tk-nukex: '@tk-nuke-no-context-defaults'
   
   # -------------------------------------------------
   # Nuke Studio
