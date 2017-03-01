@@ -18,6 +18,7 @@ description: This environment controls what items should be shown on the menu in
 includes:
 - ./includes/app_launchers.yml
 - ./includes/paths.yml
+- ./includes/engine_defaults.yml
 
 #################################################################################################
 # Define all the items that should appear in this environment
@@ -35,8 +36,10 @@ engines:
       tk-multi-launchmari: '@launch_mari'
       tk-multi-launchmaya: '@launch_maya'
       tk-multi-launchmotionbuilder: '@launch_motionbuilder'
-      tk-multi-launchnuke: '@launch_nuke'
-      tk-multi-launchnukex: '@launch_nukex'
+      tk-multi-launchnuke10.5v2: '@launch_nuke10.5v2'
+      tk-multi-launchnuke10.5v2x: '@launch_nuke10.5v2x'
+      tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
+      tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'

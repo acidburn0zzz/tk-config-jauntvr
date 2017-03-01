@@ -5,7 +5,7 @@ includes:
 - ./common_apps.yml
 
  #####################################
- # NUKE DEFAULTS
+ # NUKE DEFAULTS:
  #####################################
 tk-nuke-defaults: &tk-nuke-defaults
     apps: 
@@ -24,7 +24,7 @@ tk-nuke-defaults: &tk-nuke-defaults
     debug_logging: false
     favourite_directories: []
     location:
-      version: v0.6.9
+      version: v0.6.12
       type: app_store
       name: tk-nuke
     menu_favourites:
