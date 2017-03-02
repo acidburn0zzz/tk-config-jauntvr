@@ -43,7 +43,6 @@ tk-nuke-no-context-defaults:
     apps: 
         tk-multi-about: '@about'
         tk-multi-screeningroom: '@tk-multi-screeningroom-defaults'
-        tk-multi-setframerange: '@tk-multi-setframerange-defaults'
         tk-multi-shotgunpanel: '@tk-multi-shotgunpanel-defaults'
         tk-multi-snapshot: '@tk-multi-snapshot-defaults'
         tk-multi-workfiles2: '@workfiles2'
