@@ -88,7 +88,7 @@ nuke10.5v2x_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5 --nukex
 #
 # Nuke10.5v2
 #
-nuke10.5v2_mac: /jaunt/apps/nuke/10.5v2/Nuke10.5.app
+nuke10.5v2_mac: /jaunt/apps/nuke/10.5v2/Nuke10.5v2.app
 nuke10.5v2_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe' 
 nuke10.5v2_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5
 
