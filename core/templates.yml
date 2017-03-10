@@ -185,6 +185,7 @@ paths:
     shot_root: '{Sequence}/{Shot}/{Step}'
     asset_root: library/{sg_asset_type}/{Asset}/{Step}
     dailies_root: library/dailies
+    dailies_shot_root: library/dailies/{Sequence}/{Shot}
     editorial_input: dept/editorial/video/imports
 
     ##########################################################################################
