@@ -211,7 +211,7 @@ launch_nuke10.5v2:
   engine: tk-nuke
   extra: {}
   hook_app_launch: default
-  hook_before_app_launch: before_nuke105_launch
+  hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nuke10.5v2_linux'
@@ -231,7 +231,7 @@ launch_nuke10.5v2x:
   engine: tk-nukex
   extra: {}
   hook_app_launch: default
-  hook_before_app_launch: before_nuke105_launch
+  hook_before_app_launch: before_nuke_launch
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nuke10.5v2x_linux'
