@@ -308,7 +308,7 @@ frameworks:
       version: v1.0.3
   tk-framework-qtwidgets_v2.x.x:
     location:
-      version: v2.2.1
+      version: v2.5.18
       type: app_store
       name: tk-framework-qtwidgets
   tk-framework-shotgunutils_v2.x.x:
@@ -323,7 +323,7 @@ frameworks:
       name: tk-framework-shotgunutils
   tk-framework-shotgunutils_v4.x.x:
     location:
-      version: v4.1.2
+      version: v4.4.15
       type: app_store
       name: tk-framework-shotgunutils
   tk-framework-widget_v0.2.x:
