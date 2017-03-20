@@ -72,7 +72,7 @@ engines:
       tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
       tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
       tk-multi-launchpremiere2017: '@launch_premiere2017'
-      tk-multi-launchpremiere2015: '@launch_premiere2015' 
+      tk-multi-launchpremiere2015: '@launch_premiere2015'
       tk-multi-importcut: '@tk-multi-importcut'
       tk-multi-importmedia: '@tk-multi-importmedia'
     collapse_rules:
@@ -193,12 +193,10 @@ engines:
   # Nuke
   # -------------------------------------------------
   tk-nuke: '@tk-nuke-no-context-defaults'
-  
   # -------------------------------------------------
   # NukeX
   # -------------------------------------------------
   tk-nukex: '@tk-nuke-no-context-defaults'
-  
   # -------------------------------------------------
   # Nuke Studio
   # -------------------------------------------------
@@ -390,6 +388,11 @@ engines:
       tk-multi-scriptedapp: '@tk-multi-scriptedapp'
       tk-premiere-jauntvr: '@tk-premiere-jauntvr'
       tk-multi-importmedia: '@tk-multi-importmedia'
+      tk-multi-demo:
+        location:
+          version: v1.0.0
+          type: app_store
+          name: tk-multi-demo
     location:
       version: v0.4.1
       type: app_store
@@ -411,7 +414,6 @@ engines:
     menu_favourites:
     - {app_instance: tk-multi-workfiles2, name: File Open...}
     template_project:
-    
 ###############################################################################
 #
 # Framework includes.
