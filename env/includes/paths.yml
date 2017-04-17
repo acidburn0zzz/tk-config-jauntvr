@@ -76,6 +76,21 @@ nuke10.5v2_mac: /jaunt/apps/nuke/10.5v2/Nuke10.5v2.app
 nuke10.5v2_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe' 
 nuke10.5v2_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5
 
+
+# NukeX10.5v3
+#
+nuke10.5v3x_mac: /jaunt/apps/nuke/10.5v3/NukeX10.5v3.app
+nuke10.5v3x_windows: 'C:\Program Files\Nuke10.5v3\Nuke10.5.exe --nukex'
+nuke10.5v3x_linux: /jaunt/apps/nuke/10.5v3/Nuke10.5 --nukex
+
+
+#
+# Nuke10.5v3
+#
+nuke10.5v3_mac: /jaunt/apps/nuke/10.5v3/Nuke10.5v3.app
+nuke10.5v3_windows: 'C:\Program Files\Nuke10.5v3\Nuke10.5.exe' 
+nuke10.5v3_linux: /jaunt/apps/nuke/10.5v3/Nuke10.5
+
 #
 # motionbuilder
 #
