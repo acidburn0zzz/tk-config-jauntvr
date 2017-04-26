@@ -80,6 +80,13 @@ tk-multi-importcut:
       type: dev
       path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-multi-importcut-jauntvr/v0.1.1
 
+# tk-multi-importcut:
+#   display_name: Import Cut
+#   location:
+#     version: v2.2.5
+#     type: app_store
+#     name: tk-multi-importcut
+
 tk-multi-scriptedapp:
     scripts_path: /jaunt/apps/shotgun/default/install/apps/jaunt/tk-premiere-jauntvr/v3.1.3/python
     location:

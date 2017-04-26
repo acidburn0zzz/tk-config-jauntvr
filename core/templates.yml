@@ -187,6 +187,7 @@ paths:
     dailies_root: library/dailies
     dailies_shot_root: library/dailies/shot_history/{Sequence}/{Shot}
     editorial_input: dept/editorial/video/imports
+    editorial_turnover_destination: '{Sequence}/{Shot}/sources'
 
     ##########################################################################################
     # Project level paths
