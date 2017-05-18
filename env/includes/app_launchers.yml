@@ -46,75 +46,7 @@ launch_3dsmax:
   versions: []
   windows_args: ''
   windows_path: '@3dsmax_windows'
-#
-# -------------------------------------------------
-# Hiero
-# -------------------------------------------------
-launch_hiero:
-  defer_keyword: ''
-  engine: tk-hiero
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: default
-  icon: '{target_engine}/icon_hiero_256.png'
-  linux_args: --hiero
-  linux_path: '@hiero_linux'
-  location:
-    version: v0.7.6
-    type: app_store
-    name: tk-multi-launchapp
-  mac_args: ''
-  mac_path: '@hiero_mac'
-  menu_name: Launch Hiero
-  versions: []
-  windows_args: --hiero
-  windows_path: '@hiero_win'
-#
-# -------------------------------------------------
-# Houdini
-# -------------------------------------------------
-launch_houdini:
-  defer_keyword: ''
-  engine: tk-houdini
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: default
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: '@houdini_linux'
-  location:
-    version: v0.7.6
-    type: app_store
-    name: tk-multi-launchapp
-  mac_args: ''
-  mac_path: '@houdini_mac'
-  menu_name: Launch Houdini
-  versions: []
-  windows_args: ''
-  windows_path: '@houdini_windows'
-#
-# -------------------------------------------------
-# Mari
-# -------------------------------------------------
-launch_mari:
-  defer_keyword: ''
-  engine: tk-mari
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: default
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: '@mari_linux'
-  location:
-    version: v0.7.6
-    type: app_store
-    name: tk-multi-launchapp
-  mac_args: ''
-  mac_path: '@mari_mac'
-  menu_name: Launch Mari
-  versions: []
-  windows_args: ''
-  windows_path: '@mari_windows'
+
 #
 # -------------------------------------------------
 # Maya
@@ -140,71 +72,8 @@ launch_maya:
   windows_path: '@maya_windows'
 #
 # -------------------------------------------------
-# Motionbuilder
-# -------------------------------------------------
-launch_motionbuilder:
-  defer_keyword: ''
-  engine: tk-motionbuilder
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: default
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: ''
-  location:
-    version: v0.7.6
-    type: app_store
-    name: tk-multi-launchapp
-  mac_args: ''
-  mac_path: ''
-  menu_name: Launch MotionBuilder
-  versions: []
-  windows_args: ''
-  windows_path: '@motionbuilder_windows'
-#
-# -------------------------------------------------
 # Nuke
 # -------------------------------------------------
-
-#~ launch_nuke10.0v5:
-  #~ defer_keyword: ''
-  #~ engine: tk-nuke
-  #~ extra: {}
-  #~ hook_app_launch: default
-  #~ hook_before_app_launch: before_nuke10_launch
-  #~ icon: '{target_engine}/icon_256.png'
-  #~ linux_args: ''
-  #~ linux_path: '@nuke10.0v5_linux'
-  #~ location:
-    #~ version: v0.7.6
-    #~ type: app_store
-    #~ name: tk-multi-launchapp
-  #~ mac_args: ''
-  #~ mac_path: '@nuke10.0v5_mac'
-  #~ menu_name: Launch Nuke 10.0v5
-  #~ versions: ['10.0v5']
-  #~ windows_args: ''
-  #~ windows_path: '@nuke10.0v5_windows'
-  
-#~ launch_nuke10.0v5x:
-  #~ defer_keyword: ''
-  #~ engine: tk-nukex
-  #~ extra: {}
-  #~ hook_app_launch: default
-  #~ hook_before_app_launch: before_nuke10_launch
-  #~ icon: '{target_engine}/icon_256.png'
-  #~ linux_args: ''
-  #~ linux_path: '@nuke10.0v5x_linux'
-  #~ location:
-    #~ version: v0.7.6
-    #~ type: app_store
-    #~ name: tk-multi-launchapp
-  #~ mac_args: ''
-  #~ mac_path: '@nuke10.0v5x_mac'
-  #~ menu_name: Launch NukeX 10.0v5
-  #~ versions: ['10.0v5x']
-  #~ windows_args: ''
-  #~ windows_path: '@nuke10.0v5x_windows'
  
 launch_nuke10.5v2:
   defer_keyword: ''
@@ -246,7 +115,6 @@ launch_nuke10.5v2x:
   windows_args: ''
   windows_path: '@nuke10.5v2x_windows'
   
-  
 launch_nuke10.5v3:
   defer_keyword: ''
   engine: tk-nuke
@@ -286,8 +154,6 @@ launch_nuke10.5v3x:
   versions: ['10.5v3x']
   windows_args: ''
   windows_path: '@nuke10.5v3x_windows'
-  
-  
 #
 # -------------------------------------------------
 # Photoshop

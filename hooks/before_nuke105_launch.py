@@ -71,6 +71,7 @@ class BeforeNukeLaunch(tank.Hook):
             
         env = pickle.loads(penv.read())
         env["NUKE_PATH"] = env["NUKE_PATH"] + ":" + env["NUKE_PLUGIN_PATH"] + ":" + env["NUKE_PATH_10_5"]
+        multi_launchapp.log_info(env["NUKE_PATH"])
         os.environ = env
         
         # do not pass the DISPLAY! 

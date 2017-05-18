@@ -29,39 +29,6 @@ maya_mac: /Applications/Autodesk/maya2016/Maya.app
 maya_linux: maya
 
 
-#~ #
-#~ # NukeX10.5v2
-#~ #
-#~ nuke10.5v2x_mac: /jaunt/apps/nuke/10.5v2/NukeX10.5v2.app
-#~ nuke10.5v2x_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe --nukex'
-#~ nuke10.5v2x_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5 --nukex
-
-
-#~ #
-#~ # Nuke10.5v2
-#~ #
-#~ nuke10.5v2_mac: /jaunt/apps/nuke/10.5v2/Nuke10.5.app
-#~ nuke10.5v2_windows: 'C:\Program Files\Nuke10.5v2\Nuke10.5.exe' 
-#~ nuke10.5v2_linux: /jaunt/apps/nuke/10.5v2/Nuke10.5
-
-
-
-#
-# NukeX10.0v5
-#~ #
-#~ nuke10.0v5x_mac: /jaunt/apps/nuke/10.0v5/NukeX10.0v5.app
-#~ nuke10.0v5x_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe --nukex'
-#~ nuke10.0v5x_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0 --nukex
-
-
-#~ #
-#~ # Nuke10.0v5
-#~ #
-#~ nuke10.0v5_mac: /jaunt/apps/nuke/10.0v5/Nuke10.0v5.app
-#~ nuke10.0v5_windows: 'C:\Program Files\Nuke10.0v5\Nuke10.0.exe' 
-#~ nuke10.0v5_linux: /jaunt/apps/nuke/10.0v5/Nuke10.0
-
-#~ #
 # NukeX10.5v2
 #
 nuke10.5v2x_mac: /jaunt/apps/nuke/10.5v2/NukeX10.5v2.app

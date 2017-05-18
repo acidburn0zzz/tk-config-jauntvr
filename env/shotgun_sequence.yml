@@ -32,9 +32,9 @@ engines:
   tk-shotgun:
     apps:
       tk-multi-launch3dsmax: '@launch_3dsmax'
-      tk-multi-launchhoudini: '@launch_houdini'
+      #~ tk-multi-launchhoudini: '@launch_houdini'
       tk-multi-launchmaya: '@launch_maya'
-      tk-multi-launchmotionbuilder: '@launch_motionbuilder'
+      #~ tk-multi-launchmotionbuilder: '@launch_motionbuilder'
       tk-multi-launchnuke10.5v2: '@launch_nuke10.5v2'
       tk-multi-launchnuke10.5v2x: '@launch_nuke10.5v2x'
       tk-multi-launchnuke10.5v3: '@launch_nuke10.5v3'
@@ -42,7 +42,7 @@ engines:
       #~ tk-multi-launchnuke10.0v5: '@launch_nuke10.0v5'
       #~ tk-multi-launchnuke10.0v5x: '@launch_nuke10.0v5x'
       tk-multi-launchphotoshop: '@launch_photoshop'
-      tk-multi-launchsoftimage: '@launch_softimage'
+      #~ tk-multi-launchsoftimage: '@launch_softimage'
       tk-multi-screeningroom: '@launch_screeningroom'
       # tk-shotgun-folders:
       #  deny_permissions: []
