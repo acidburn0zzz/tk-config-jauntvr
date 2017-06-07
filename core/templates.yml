@@ -184,9 +184,9 @@ paths:
 
     shot_root: '{Sequence}/{Shot}/{Step}'
     asset_root: library/{sg_asset_type}/{Asset}/{Step}
-    dailies_root: dailies
+    dailies_root: dailies/
     dailies_shot_root: dailies/shot_history/{Sequence}/{Shot}
-    editorial_input: dept/editorial/video/imports
+    editorial_input: dept/editorial/video/imports/
     editorial_turnover_destination: '{Sequence}/{Shot}/sources'
 
     ##########################################################################################
