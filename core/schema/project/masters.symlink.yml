@@ -1,4 +1,0 @@
-# Example of a .symlink.yml file 
-
-# A target parameter is required. 
-target: "/jaunt/vaults/prod/projects/$Project/masters"
