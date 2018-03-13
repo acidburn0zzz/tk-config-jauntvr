@@ -1,4 +1,4 @@
 # Example of a .symlink.yml file 
 
 # A target parameter is required. 
-target: "/jaunt/groups/masters/Projects/$Project"
+target: "../../color/stitch"
